@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  SectionMessagesList,
   UserAvatar,
   Text,
   MessageContainer,
@@ -13,32 +14,30 @@ const src = 'https://emilcarlsson.se/assets/mikeross.png';
 class MessagesList extends React.Component {
   public static messageRender(massage: IMessage): JSX.Element {
     return (
-      <SectionContactHeader>
-        <MessageContainer key={Math.random()}>
-          <UserAvatar
-            maxWidth="45px"
-            maxHeight="45px"
-            borderSize="1px"
-            src={src}
-            size="tiny"
-            circular={true}
-          />
-          <MessageInfoContainer>
-            <MessageArrow />
-            <Text
-              textColor="white"
-              textSize="15px"
-              textLineHeight="1.5"
-              textWeight="400"
-              textFontFamily="Titillium Web"
-              className="messageText"
-            >
-              {massage.text}
-            </Text>
-            <MessageDate>{massage.date}</MessageDate>
-          </MessageInfoContainer>
-        </MessageContainer>
-      </SectionContactHeader>
+      <MessageContainer key={Math.random()}>
+        <UserAvatar
+          maxWidth="45px"
+          maxHeight="45px"
+          borderSize="1px"
+          src={src}
+          size="tiny"
+          circular={true}
+        />
+        <MessageInfoContainer>
+          <MessageArrow />
+          <Text
+            textColor="white"
+            textSize="15px"
+            textLineHeight="1.5"
+            textWeight="400"
+            textFontFamily="Titillium Web"
+            className="messageText"
+          >
+            {massage.text}
+          </Text>
+          <MessageDate>{massage.date}</MessageDate>
+        </MessageInfoContainer>
+      </MessageContainer>
     );
   }
   public render() {
@@ -121,7 +120,11 @@ class MessagesList extends React.Component {
       },
     ];
 
-    return messages.map(MessagesList.messageRender);
+    return (
+      <SectionMessagesList>
+        {messages.map(MessagesList.messageRender)}
+      </SectionMessagesList>
+    );
   }
 }
 
