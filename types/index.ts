@@ -11,3 +11,12 @@ declare interface IMessage {
   date: string,
   isRead: boolean
 }
+
+declare interface ITextProps {
+  textColor: string,
+  textSize: string,
+  textLineHeight: string,
+  textWeight: string,
+  textFontFamily: string
+}
+

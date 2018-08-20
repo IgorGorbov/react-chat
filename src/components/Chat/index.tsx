@@ -1,68 +1,30 @@
 import * as React from 'react';
-import { Image, Input, Button, Icon } from 'semantic-ui-react';
 
-import UserList from '../../containers/UserList';
-import UserStatus from '../../containers/UserStatus';
-import MassagesList from '../../containers/MassagesList';
+import styled from 'styled-components';
 
-import './styles.css';
+import SectionContacts from '../SectionContacts';
+import SectionContactHeader from '../SectionContactHeader';
+import SectionMessagesList from '../../containers/SectionMessagesList';
+import SectionNewMessage from '../../containers/SectionNewMessage'
 
-const src = 'https://emilcarlsson.se/assets/mikeross.png';
-const src2 = 'https://emilcarlsson.se/assets/louislitt.png';
+export const GridLayout = styled.div`
+  display: grid;
+  margin: 80px auto 0 auto;
+  width: 75%;
+  grid-template-columns: 1fr 3fr;
+  grid-auto-rows: minmax(20px, auto);
+  background-color: #485f78;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+`;
 
 const Chat = (): JSX.Element => {
   return (
-    <div className="container">
-      <section className="contactsList">
-        <div className="userWrapper">
-          <Image className="userAvatar" src={src} size="tiny" circular={true} />
-          <span className="userName">Mike Ross</span>
-        </div>
-        <Input
-          className="inputSearch"
-          icon="users"
-          iconPosition="left"
-          placeholder="Search users..."
-        />
-        <UserStatus />
-        <UserList />
-        <div className="buttonControls">
-          <Button color="black" icon={true} labelPosition="right">
-            Add User
-            <Icon name="add user" />
-          </Button>
-          <Button color="black" icon={true} labelPosition="right">
-            Settings
-            <Icon name="settings" />
-          </Button>
-        </div>
-      </section>
-      <section className="contactHeader">
-        <Image
-          className="contactHeaderAvatar"
-          src={src2}
-          size="tiny"
-          circular={true}
-        />
-        <div className="contactUserInfo">
-          <span className="contactUserName">Louis Litt</span>
-          <span className="contactUserStatus">Online</span>
-        </div>
-        <Button className="userDeleteButton" color="red" icon="user delete" />
-      </section>
-      <section className="messagesList">
-        <MassagesList />
-      </section>
-      <section className="inputField">
-        <Input
-          className="textInputMessage"
-          placeholder="Write your message ..."
-        />
-        <Button className="ButtonSend" size="large" primary={true} icon={true}>
-          <Icon name="send" />
-        </Button>
-      </section>
-    </div>
+    <GridLayout>
+      <SectionContacts />
+      <SectionContactHeader />
+      <SectionMessagesList />
+      <SectionNewMessage />
+    </GridLayout>
   );
 };
 

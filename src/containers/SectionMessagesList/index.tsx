@@ -1,25 +1,44 @@
 import * as React from 'react';
-import { Image } from 'semantic-ui-react';
+import {
+  UserAvatar,
+  Text,
+  MessageContainer,
+  MessageInfoContainer,
+  MessageArrow,
+  MessageDate,
+} from '../../StyledComponents';
 
-import './styles.css';
 const src = 'https://emilcarlsson.se/assets/mikeross.png';
 
 class MessagesList extends React.Component {
   public static messageRender(massage: IMessage): JSX.Element {
     return (
-      <div className="messageWrapper" key={Math.random()}>
-        <Image
-          className="messageAvatar"
-          src={src}
-          size="tiny"
-          circular={true}
-        />
-        <div className="messageInfo">
-          <span className="messageInfoArrow" />
-          <span className="messageText">{massage.text}</span>
-          <span className="messageDate">{massage.date}</span>
-        </div>
-      </div>
+      <SectionContactHeader>
+        <MessageContainer key={Math.random()}>
+          <UserAvatar
+            maxWidth="45px"
+            maxHeight="45px"
+            borderSize="1px"
+            src={src}
+            size="tiny"
+            circular={true}
+          />
+          <MessageInfoContainer>
+            <MessageArrow />
+            <Text
+              textColor="white"
+              textSize="15px"
+              textLineHeight="1.5"
+              textWeight="400"
+              textFontFamily="Titillium Web"
+              className="messageText"
+            >
+              {massage.text}
+            </Text>
+            <MessageDate>{massage.date}</MessageDate>
+          </MessageInfoContainer>
+        </MessageContainer>
+      </SectionContactHeader>
     );
   }
   public render() {

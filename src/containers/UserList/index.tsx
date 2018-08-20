@@ -1,7 +1,6 @@
 import * as React from 'react';
 import UserCard from '../../components/UserCard';
-
-import './styles.css';
+import { UserListWrapper } from '../../StyledComponents';
 
 class UserList extends React.Component {
   public static renderUserCard(user: IUserCard): JSX.Element {
@@ -58,9 +57,7 @@ class UserList extends React.Component {
     ];
 
     return (
-      <div className="UserListWrapper">
-        {users.map(UserList.renderUserCard)}
-      </div>
+      <UserListWrapper>{users.map(UserList.renderUserCard)}</UserListWrapper>
     );
   }
 }
