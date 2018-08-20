@@ -1,0 +1,66 @@
+.messageWrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+}
+
+.messageAvatar {
+    max-width: 45px !important;
+    max-height: 45px;
+}
+
+.messageInfo {
+    position: relative;
+    max-width: 450px;
+    align-self: flex-start;
+    border-radius: 25px 25px;
+    padding: 10px 10px 30px 10px;
+    margin: 0 0 10px 20px;
+    color: white;
+    box-shadow: 0 10px 6px -6px #777;
+    background-color: #6B7D91;
+}
+
+.messageInfoArrow {
+    display: block;
+    position: absolute;
+    top: 48%;
+    left: -14px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 0 solid transparent;
+    border-top: 20px solid #6B7D91;
+}
+
+.messageText {
+    font-size: 15px;
+}
+
+.messageDate {
+    display: block;
+    position: absolute;
+    bottom: 2px;
+    right: 15px;
+    font-size: 12px;
+}
+
+
+
+
+/*.messageWrapper {*/
+    /*flex-direction: row-reverse;*/
+/*}*/
+
+/*.messageInfo {*/
+    /*margin: 0 20px 10px 0;*/
+    /*background-color: #9DC2E9;*/
+/*}*/
+
+/*.messageInfoArrow {*/
+    /*left: auto;*/
+    /*right: -14px;*/
+    /*border-top: 20px solid #9DC2E9;*/
+/*}*/
+
