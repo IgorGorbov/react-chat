@@ -18,9 +18,9 @@ export const UserInfoWrapper = styled.div`
 `;
 
 export const UserAvatar = styled(Image)`
-  max-height: ${props => props.maxHeight};
-  max-width: ${props => props.maxWidth} !important;
-  border: ${props => props.borderSize} solid ${props => props.borderColor};
+  max-height: ${props => props.maxheight};
+  max-width: ${props => props.maxwidth} !important;
+  border: ${props => props.bordersize} solid ${props => props.bordercolor};
   cursor: ${props => props.cursor};
   align-self: center;
 `;
@@ -36,11 +36,11 @@ export const Text = styled.span`
 `;
 
 export const UserInput = styled(Input)`
-  width: ${props => props.inputWidth};
+  width: ${props => props.inputwidth};
   padding: 0 1px;
   input {
-    color: ${props => props.inputColor} !important;
-    background-color: ${props => props.inputBgc} !important;
+    color: ${props => props.inputcolor} !important;
+    background-color: ${props => props.inputbgc} !important;
   }
 `;
 
@@ -75,9 +75,9 @@ export const ContactInfoContainer = styled.div`
 
 export const UserButton = styled(Button)`
   align-self: center;
-  width: ${props => props.buttonWidth};
-  height: ${props => props.buttonHeight};
-  margin: ${props => props.buttonMargin} !important;
+  width: ${props => props.buttonwidth};
+  height: ${props => props.buttonheight};
+  margin: ${props => props.buttonmargin} !important;
 `;
 
 export const SectionMessagesList = styled.section`

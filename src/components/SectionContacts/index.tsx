@@ -20,10 +20,10 @@ const SectionContacts = () => {
     <SectionContactsList>
       <UserInfoWrapper>
         <UserAvatar
-          maxHeight="80px"
-          maxWidth="80px"
-          borderSize="4px"
-          borderColor="green"
+          maxheight="80px"
+          maxwidth="80px"
+          bordersize="4px"
+          bordercolor="green"
           cursor="true"
           src={src}
           size="tiny"
@@ -43,9 +43,9 @@ const SectionContacts = () => {
         icon="users"
         iconPosition="left"
         placeholder="Search users..."
-        inputWidth="100%"
-        inputColor="white"
-        inputBgc="#485F78"
+        inputwidth="100%"
+        inputcolor="white"
+        inputbgc="#485F78"
       />
       <UserStatus />
       <UserList />

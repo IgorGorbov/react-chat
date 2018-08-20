@@ -77,10 +77,10 @@ const UserCard = (props: IUserCard): JSX.Element => {
     <UserCardContainer>
       <ImageContainer>
         <UserAvatar
-          maxWidth="65px"
-          maxHeight="65px"
-          borderSize="1px"
-          borderColor="white"
+          maxwidth="65px"
+          maxheight="65px"
+          bordersize="1px"
+          bordercolor="white"
           src={props.avatar}
           size="tiny"
           circular={true}
