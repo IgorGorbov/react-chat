@@ -15,7 +15,7 @@
   "scripts": {
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
+    "test": "react-scripts-ts test --env=jsdom --coverage --collectCoverageFrom=src/**/*js --collectCoverageFrom=!src/registerServiceWorker.js",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
@@ -23,6 +23,8 @@
     "@types/node": "^10.7.1",
     "@types/react": "^16.4.11",
     "@types/react-dom": "^16.0.7",
+    "codecov.io": "^0.1.6",
+    "coveralls": "^3.0.2",
     "prettier": "1.14.2",
     "typescript": "^3.0.1"
   }

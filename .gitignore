@@ -24,3 +24,5 @@ yarn.lock
 ./idea
 .idea
 .idea/codeStyles/Project.xml
+
+./coverage 
