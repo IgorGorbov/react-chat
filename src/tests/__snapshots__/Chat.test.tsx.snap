@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing Chat component snapshot Chat component 1`] = `
+<styled.div>
+  <SectionContacts />
+  <SectionContactHeader />
+  <SectionMessagesList />
+  <SectionUserNewMessage />
+</styled.div>
+`;
