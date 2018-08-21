@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {
-  SectionContactHeader,
+  SectionContactHeader as ContactHeader,
   ContactInfoContainer,
   UserAvatar,
   Text,
@@ -10,9 +10,9 @@ import {
 
 const src2 = 'https://emilcarlsson.se/assets/louislitt.png';
 
-const ContactHeader = () => {
+const SectionContactHeader = () => {
   return (
-    <SectionContactHeader>
+    <ContactHeader>
       <UserAvatar
         src={src2}
         size="tiny"
@@ -50,8 +50,8 @@ const ContactHeader = () => {
         color="red"
         icon="user delete"
       />
-    </SectionContactHeader>
+    </ContactHeader>
   );
 };
 
-export default ContactHeader;
+export default SectionContactHeader;

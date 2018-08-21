@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import SectionContacts from '../SectionContacts';
 import SectionContactHeader from '../SectionContactHeader';
 import SectionMessagesList from '../../containers/SectionMessagesList';
-import SectionNewMessage from '../../containers/SectionNewMessage';
+import SectionUserNewMessage from '../../containers/SectionNewMessage';
 
 export const GridLayout = styled.div`
   display: grid;
@@ -23,7 +23,7 @@ const Chat = (): JSX.Element => {
       <SectionContacts />
       <SectionContactHeader />
       <SectionMessagesList />
-      <SectionNewMessage />
+      <SectionUserNewMessage />
     </GridLayout>
   );
 };

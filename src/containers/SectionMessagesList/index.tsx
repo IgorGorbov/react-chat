@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  SectionMessagesList,
+  SectionMessagesList as MessagesList,
   UserAvatar,
   Text,
   MessageContainer,
@@ -11,7 +11,7 @@ import {
 
 const src = 'https://emilcarlsson.se/assets/mikeross.png';
 
-class MessagesList extends React.Component {
+class SectionMessagesList extends React.Component {
   public static messageRender(massage: IMessage): JSX.Element {
     return (
       <MessageContainer key={Math.random()}>
@@ -121,11 +121,11 @@ class MessagesList extends React.Component {
     ];
 
     return (
-      <SectionMessagesList>
-        {messages.map(MessagesList.messageRender)}
-      </SectionMessagesList>
+      <MessagesList>
+        {messages.map(SectionMessagesList.messageRender)}
+      </MessagesList>
     );
   }
 }
 
-export default MessagesList;
+export default SectionMessagesList;
