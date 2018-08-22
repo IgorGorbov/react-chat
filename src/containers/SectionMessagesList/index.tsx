@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  SectionMessagesList as MessagesList,
+  MessagesList,
   UserAvatar,
   Text,
   MessageContainer,
@@ -11,10 +11,15 @@ import {
 
 const src = 'https://emilcarlsson.se/assets/mikeross.png';
 
-class SectionMessagesList extends React.Component {
+function isMessagesArray(arr: any): arr is [] {
+  return arr.length > 0 &&
+    typeof arr[0] === "object" && Array.isArray(arr);
+}
+
+class SectionMessagesList extends React.Component<ISectionMessagesList, {}> {
   public static messageRender(massage: IMessage): JSX.Element {
     return (
-      <MessageContainer key={Math.random()}>
+      <MessageContainer key={massage.id}>
         <UserAvatar
           maxwidth="45px"
           maxheight="45px"
@@ -41,88 +46,17 @@ class SectionMessagesList extends React.Component {
     );
   }
   public render() {
-    const messages: IMessage[] = [
-      {
-        from: 'Mike Ross',
-        to: 'Louis Litt',
-        text:
-          'Lorem ipsum dolor sit amet, onsectetur adipisicing  onsectetur ' +
-          'adipisicing consectetur adipisicing elit. Porro!',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Louis Litt',
-        to: 'Mike Ross',
-        text: 'Lorem ipsum dolor sit amet',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Mike Ross',
-        to: 'Louis Litt',
-        text:
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Louis Litt',
-        to: 'Mike Ross',
-        text: 'Lorem ipsum dolor sit amet',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Mike Ross',
-        to: 'Louis Litt',
-        text:
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Louis Litt',
-        to: 'Mike Ross',
-        text: 'Lorem ipsum dolor sit amet',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Mike Ross',
-        to: 'Louis Litt',
-        text:
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Louis Litt',
-        to: 'Mike Ross',
-        text: 'Lorem ipsum dolor sit amet',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Mike Ross',
-        to: 'Louis Litt',
-        text:
-          'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-      {
-        from: 'Louis Litt',
-        to: 'Mike Ross',
-        text: 'Lorem ipsum dolor sit amet',
-        date: new Date().toDateString(),
-        isRead: false,
-      },
-    ];
+    const { messages } = this.props;
+    let content: JSX.Element | JSX.Element[];
 
+    if(isMessagesArray(messages)) {
+      content = messages.map(SectionMessagesList.messageRender)
+    } else {
+      content = <p>Not messages</p>
+    }
     return (
       <MessagesList>
-        {messages.map(SectionMessagesList.messageRender)}
+        {content}
       </MessagesList>
     );
   }

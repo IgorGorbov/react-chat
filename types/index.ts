@@ -1,3 +1,7 @@
+declare interface ISectionMessagesList {
+  messages: IMessage[] | []
+}
+
 declare interface IUserCard {
   id: number,
   name: string,
@@ -5,6 +9,7 @@ declare interface IUserCard {
 }
 
 declare interface IMessage {
+  id: string,
   from: string,
   to: string,
   text: string,

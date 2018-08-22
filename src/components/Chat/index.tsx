@@ -18,11 +18,100 @@ export const GridLayout = styled.div`
 `;
 
 const Chat = (): JSX.Element => {
+  const messages: IMessage[] = [
+    {
+      id: '1',
+      from: 'Mike Ross',
+      to: 'Louis Litt',
+      text:
+      'Lorem ipsum dolor sit amet, onsectetur adipisicing  onsectetur ' +
+      'adipisicing consectetur adipisicing elit. Porro!',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '2',
+      from: 'Louis Litt',
+      to: 'Mike Ross',
+      text: 'Lorem ipsum dolor sit amet',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '3',
+      from: 'Mike Ross',
+      to: 'Louis Litt',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '4',
+      from: 'Louis Litt',
+      to: 'Mike Ross',
+      text: 'Lorem ipsum dolor sit amet',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '5',
+      from: 'Mike Ross',
+      to: 'Louis Litt',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '6',
+      from: 'Louis Litt',
+      to: 'Mike Ross',
+      text: 'Lorem ipsum dolor sit amet',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '7',
+      from: 'Mike Ross',
+      to: 'Louis Litt',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '8',
+      from: 'Louis Litt',
+      to: 'Mike Ross',
+      text: 'Lorem ipsum dolor sit amet',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '9',
+      from: 'Mike Ross',
+      to: 'Louis Litt',
+      text:
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+    {
+      id: '10',
+      from: 'Louis Litt',
+      to: 'Mike Ross',
+      text: 'Lorem ipsum dolor sit amet',
+      date: new Date().toDateString(),
+      isRead: false,
+    },
+  ];
+
   return (
     <GridLayout>
       <SectionContacts />
       <SectionContactHeader />
-      <SectionMessagesList />
+      <SectionMessagesList messages={messages} />
       <SectionUserNewMessage />
     </GridLayout>
   );

@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing SectionUserNewMessage snapshot SectionUserNewMessage 1`] = `
+<SectionUserNewMessage>
+  <styled.section>
+    <section
+      className="sc-iwsKbI ioDznA"
+    >
+      <Styled(Input)
+        inputwidth="92%"
+        placeholder="Write your message ..."
+      >
+        <Input
+          className="sc-ifAKCX jpARSZ"
+          inputwidth="92%"
+          placeholder="Write your message ..."
+          type="text"
+        >
+          <div
+            className="ui input sc-ifAKCX jpARSZ"
+            inputwidth="92%"
+          >
+            <input
+              onChange={[Function]}
+              placeholder="Write your message ..."
+              type="text"
+            />
+          </div>
+        </Input>
+      </Styled(Input)>
+      <Styled(Button)
+        buttonheight="40px"
+        buttonmargin="0 -4px 0 0"
+        buttonwidth="8%"
+        icon={true}
+        primary={true}
+        size="large"
+      >
+        <Button
+          as="button"
+          buttonheight="40px"
+          buttonmargin="0 -4px 0 0"
+          buttonwidth="8%"
+          className="sc-htoDjs hCMBMs"
+          icon={true}
+          primary={true}
+          role="button"
+          size="large"
+        >
+          <button
+            buttonheight="40px"
+            buttonmargin="0 -4px 0 0"
+            buttonwidth="8%"
+            className="ui large icon primary button sc-htoDjs hCMBMs"
+            onClick={[Function]}
+            role="button"
+          >
+            <Icon
+              as="i"
+              name="send"
+            >
+              <i
+                aria-hidden="true"
+                className="send icon"
+              />
+            </Icon>
+          </button>
+        </Button>
+      </Styled(Button)>
+    </section>
+  </styled.section>
+</SectionUserNewMessage>
+`;
