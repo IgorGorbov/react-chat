@@ -6,7 +6,7 @@ import {
   SectionNewMessage,
   UserInput,
   UserButton
-} from '../StyledComponents'
+} from '../styledComponents'
 
 describe('testing SectionUserNewMessage', () => {
   const wrapper = mount(<SectionUserNewMessage />);
@@ -22,7 +22,7 @@ describe('testing SectionUserNewMessage', () => {
   it("should contain UserButton", () => {
     expect(wrapper.find(UserButton)).toHaveLength(1);
   });
-  
+
   it('snapshot SectionUserNewMessage', () => {
     const tree = toJSON(wrapper);
     expect(tree).toMatchSnapshot();

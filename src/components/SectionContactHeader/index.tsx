@@ -6,7 +6,7 @@ import {
   UserAvatar,
   Text,
   UserButton,
-} from '../../StyledComponents';
+} from '../../styledComponents';
 
 const src2 = 'https://emilcarlsson.se/assets/louislitt.png';
 

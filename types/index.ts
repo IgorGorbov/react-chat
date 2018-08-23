@@ -1,3 +1,4 @@
+
 declare interface ISectionMessagesList {
   messages: IMessage[] | []
 }
@@ -24,4 +25,19 @@ declare interface ITextProps {
   textWeight: string,
   textFontFamily: string
 }
+
+enum Status {
+  Online = "Online",
+  Offline = "Offline",
+  Away = "Away",
+  Busy = "Busy"
+}
+
+declare interface IUser {
+  id: number,
+  name: string,
+  avatar: string,
+  status: Status.Online | Status.Offline | Status.Busy | Status.Away
+}
+
 

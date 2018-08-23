@@ -7,7 +7,7 @@ import {
   MessageInfoContainer,
   MessageArrow,
   MessageDate,
-} from '../../StyledComponents';
+} from '../../styledComponents';
 
 const src = 'https://emilcarlsson.se/assets/mikeross.png';
 

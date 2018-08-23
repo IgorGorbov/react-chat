@@ -8,7 +8,7 @@ import {
   UserName,
   TextMessage,
   NewCountMessage
-} from '../../StyledComponents'
+} from '../../styledComponents'
 
 const UserCard = (props: IUserCard): JSX.Element => {
   return (

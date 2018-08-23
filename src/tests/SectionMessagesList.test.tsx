@@ -9,7 +9,7 @@ import {
   MessageArrow,
   Text,
   MessageDate
-} from '../StyledComponents'
+} from '../styledComponents'
 
 describe('testing SectionMessagesList', () => {
   const messages: IMessage[] = [

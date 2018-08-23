@@ -3,42 +3,17 @@ import { Button, Icon } from 'semantic-ui-react';
 
 import {
   SectionContactsList,
-  UserInfoWrapper,
-  UserAvatar,
-  Text,
   UserInput,
   ButtonsContainer
-} from '../../StyledComponents';
+} from '../../styledComponents';
 
-import UserStatus from '../../containers/UserStatus'
 import UserList from '../../containers/UserList'
-
-const src = 'https://emilcarlsson.se/assets/mikeross.png';
+import UserInfoContainers from '../../containers/UserInfoContainers'
 
 const SectionContacts = () => {
   return (
     <SectionContactsList>
-      <UserInfoWrapper>
-        <UserAvatar
-          maxheight="80px"
-          maxwidth="80px"
-          bordersize="4px"
-          bordercolor="green"
-          cursor="true"
-          src={src}
-          size="tiny"
-          circular={true}
-        />
-        <Text
-          textColor="white"
-          textSize="18px"
-          textLineHeight="1"
-          textFontFamily="Titillium Web"
-          textWeight="500"
-        >
-          Mike Ross
-        </Text>
-      </UserInfoWrapper>
+      <UserInfoContainers />
       <UserInput
         icon="users"
         iconPosition="left"
@@ -47,7 +22,6 @@ const SectionContacts = () => {
         inputcolor="white"
         inputbgc="#485F78"
       />
-      <UserStatus />
       <UserList />
       <ButtonsContainer>
         <Button color="black" icon={true} labelPosition="right">

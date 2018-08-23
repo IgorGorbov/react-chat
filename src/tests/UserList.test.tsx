@@ -4,7 +4,7 @@ import { mount } from "enzyme";
 import UserList from "../containers/UserList";
 import {
   UserListWrapper
-} from '../StyledComponents'
+} from '../styledComponents'
 
 describe('testing UserList', () => {
   const wrapper = mount(<UserList />);

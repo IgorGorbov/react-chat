@@ -5,7 +5,7 @@ import {
   SectionNewMessage,
   UserButton,
   UserInput,
-} from '../../StyledComponents';
+} from '../../styledComponents';
 
 const SectionUserNewMessage = () => {
   return (

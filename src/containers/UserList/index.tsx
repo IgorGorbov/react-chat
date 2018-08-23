@@ -1,6 +1,6 @@
 import * as React from 'react';
 import UserCard from '../../components/UserCard';
-import { UserListWrapper } from '../../StyledComponents';
+import { UserListWrapper } from '../../styledComponents';
 
 class UserList extends React.Component {
   public static renderUserCard(user: IUserCard): JSX.Element {

@@ -11,7 +11,7 @@ import {
   UserName,
   TextMessage,
   NewCountMessage
-} from '../StyledComponents'
+} from '../styledComponents'
 
 describe('testing UserList', () => {
   const user: IUserCard = {

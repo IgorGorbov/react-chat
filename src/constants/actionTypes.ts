@@ -1,0 +1,4 @@
+export const USER_LOGIN = 'USER_LOGIN';
+export const CHANGE_USER_STATUS = 'CHANGE_USER_STATUS';
+
+
