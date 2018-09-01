@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/emoji-mart": "^2.8.0",
     "@types/enzyme": "^3.1.13",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/immutable": "^3.8.7",
     "@types/webfontloader": "^1.6.29",
+    "emoji-mart": "^2.8.1",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",
@@ -17,15 +19,20 @@
     "react-scripts-ts": "2.17.0",
     "react-test-renderer": "^16.4.2",
     "react-testing-library": "^5.0.0",
+    "react-wow": "^1.0.0",
     "redux": "^4.0.0",
     "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.2",
+    "socket.io": "^2.1.1",
     "styled-components": "^3.4.2",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts-ts start",
+    "server": "node src/server/server.js",
+    "dev-server": "nodemon src/server/server.js",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom --coverage --collectCoverageFrom=!src/setupTests.ts --collectCoverageFrom=!src/index.tsx --collectCoverageFrom=src/**/*tsx --collectCoverageFrom=src/**/*ts",
     "eject": "react-scripts-ts eject"
@@ -41,8 +48,9 @@
     "@types/redux-saga": "^0.10.5",
     "codecov.io": "^0.1.6",
     "coveralls": "^3.0.2",
-    "prettier": "1.14.2",
+    "prettier": "^1.14.2",
     "redux-devtools-extension": "^2.13.5",
+    "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.1"
   }
 }

@@ -1,14 +1,10 @@
 import * as React from 'react';
-import Chat from './components/Chat'
+import RootContainer from './containers/RootContainer';
 
 class App extends React.Component {
-    public render() {
-        return (
-            <Chat/>
-        )
-    }
+  public render(): JSX.Element {
+    return <RootContainer />;
+  }
 }
 
-export  default  App;
-
-
+export default App;

@@ -1,24 +1,18 @@
 import * as React from 'react';
-import { Dispatch } from 'redux';
-import {
-  UserStatusContainer,
-  RadioInput,
-} from '../../styledComponents'
-import { Status } from '../../constants/user'
+import { UserStatusContainer, RadioInput } from '../../styledComponents';
+import { Status } from '../../constants/user';
 
 declare interface IUserStatus {
-  changeUserStatus: Dispatch<any>
-  userStatus: string,
-  handleClickAvatar: () => void
+  changeUserStatus: (status: string) => { type: string; payload: string };
+  userStatus: string;
+  handleClickAvatar: () => void;
 }
 
 class UserStatus extends React.Component<IUserStatus, {}> {
-
   public handleClickLabel(newStatus: string): void {
     this.props.changeUserStatus(newStatus);
     this.props.handleClickAvatar();
   }
-
   public render() {
     const { userStatus } = this.props;
     return (
@@ -31,7 +25,7 @@ class UserStatus extends React.Component<IUserStatus, {}> {
           defaultChecked={userStatus === Status.Online}
         />
         <label
-          onClick={ () => this.handleClickLabel(Status.Online) }
+          onClick={() => this.handleClickLabel(Status.Online)}
           htmlFor="r1"
         >
           Online
@@ -44,10 +38,7 @@ class UserStatus extends React.Component<IUserStatus, {}> {
           name="status"
           defaultChecked={userStatus === Status.Away}
         />
-        <label
-          onClick={ () => this.handleClickLabel(Status.Away) }
-          htmlFor="r2"
-        >
+        <label onClick={() => this.handleClickLabel(Status.Away)} htmlFor="r2">
           Away
         </label>
 
@@ -58,10 +49,7 @@ class UserStatus extends React.Component<IUserStatus, {}> {
           name="status"
           defaultChecked={userStatus === Status.Busy}
         />
-        <label
-          onClick={ () => this.handleClickLabel(Status.Busy) }
-          htmlFor="r3"
-        >
+        <label onClick={() => this.handleClickLabel(Status.Busy)} htmlFor="r3">
           Busy
         </label>
 
@@ -73,7 +61,7 @@ class UserStatus extends React.Component<IUserStatus, {}> {
           defaultChecked={userStatus === Status.Offline}
         />
         <label
-          onClick={ () => this.handleClickLabel(Status.Offline) }
+          onClick={() => this.handleClickLabel(Status.Offline)}
           htmlFor="r4"
         >
           Offline

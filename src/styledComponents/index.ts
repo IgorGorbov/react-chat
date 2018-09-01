@@ -1,14 +1,38 @@
 import { Button, Image, Input } from 'semantic-ui-react';
 import styled from 'styled-components';
 
+export const GridLayout = styled.div`
+  display: grid;
+  min-height: 550px;
+  margin: 80px auto 0 auto;
+  width: 230px;
+  grid-template-columns: 1fr 3fr;
+  grid-auto-rows: minmax(20px, auto);
+  background-color: #485f78;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  transition: width 0.25s linear;
+  &.withChat {
+    width: 75%;
+  }
+`;
+
 export const SectionContactsList = styled.section`
   display: flex;
+  min-width: 230px;
   position: relative;
   flex-direction: column;
   grid-column: 1;
   grid-row-start: 1;
   grid-row-end: 4;
   background-color: #2f3e4e;
+`;
+
+export const AddUserButton = styled(Button)`
+  display: flex;
+  margin: auto 0 0 0 !important;
+  padding: 0;
+  margin-right: 2px !important;
+  width: 99.9% !important;
 `;
 
 export const UserInfoWrapper = styled.div`
@@ -44,18 +68,6 @@ export const UserInput = styled(Input)`
   }
 `;
 
-export const ButtonsContainer = styled.div`
-  display: flex;
-  width: 100%;
-  margin: auto 0 0 0;
-  align-self: center;
-  padding: 0;
-  & button {
-    width: 50.5%;
-    margin-right: -4px !important;
-  }
-`;
-
 export const SectionContactHeader = styled.section`
   grid-column: 2;
   grid-row: 1;
@@ -82,13 +94,16 @@ export const UserButton = styled(Button)`
 
 export const MessagesList = styled.section`
   max-height: 550px;
+  min-height: 550px;
   overflow-y: scroll;
+  overflow-x: hidden;
   grid-column: 2;
   grid-row: 2;
   background-color: #e7eaea;
 `;
 
 export const SectionNewMessage = styled.section`
+  position: relative;
   grid-column: 2;
   grid-row: 3;
   max-height: 40px;
@@ -104,18 +119,33 @@ export const MessageContainer = styled.div`
   align-items: center;
   padding: 10px 15px;
   margin-bottom: 10px;
+  &.isMessageTo {
+    flex-direction: row-reverse;
+  }
 `;
 
 export const MessageInfoContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
-  max-width: 450px;
-  align-self: flex-start;
+  max-width: 280px;
+  min-width: 120px;
+  min-height: 60px;
   border-radius: 25px 25px;
-  padding: 10px 10px 30px 10px;
+  padding: 10px 10px 12px 10px;
   margin: 0 0 10px 20px;
   color: white;
   box-shadow: 0 10px 6px -6px #777;
   background-color: #6b7d91;
+  transition: all 0.35s ease;
+  &.isMessageTo {
+    background-color: #3f85ca;
+    margin: 0 20px 10px 20px;
+  }
+  &.isSelected {
+    transform: scale(1.1);
+    background-color: #960cff;
+  }
 `;
 
 export const MessageArrow = styled.span`
@@ -123,19 +153,42 @@ export const MessageArrow = styled.span`
   position: absolute;
   top: 48%;
   left: -14px;
+  right: unset;
+  transform: rotate(90deg);
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 0 solid transparent;
   border-top: 20px solid #6b7d91;
+  transition: all 0.35s ease;
+  &.isMessageTo {
+    left: unset;
+    right: -14px;
+    transform: rotate(180deg);
+    border-top: 20px solid #3f85ca;
+  }
+  &.isSelected {
+    border-top: 20px solid #960cff;
+  }
+`;
+
+export const TextMessage = styled.p`
+  display: flex;
+  font-size: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  hyphens: auto;
+  color: white;
+  font-weight: 300;
 `;
 
 export const MessageDate = styled.span`
-  display: block;
+  display: flex;
   position: absolute;
   bottom: 2px;
-  right: 15px;
+  right: 8px;
   font-size: 12px;
+  width: 90px;
 `;
 
 export const UserListWrapper = styled.div`
@@ -149,10 +202,14 @@ export const UserCardContainer = styled.div`
   flex-wrap: nowrap;
   padding: 10px 20px;
   cursor: pointer;
+  user-select: none;
   transition: background-color 0.3s ease;
 
   &:hover {
     background-color: #364658;
+  }
+  &.active {
+    background-color: #1d1d1d;
   }
 `;
 
@@ -163,12 +220,12 @@ export const ImageContainer = styled.div`
 export const UserStatus = styled.span`
   display: block;
   position: absolute;
-  top: 0;
+  top: 3px;
   left: 0;
   border-radius: 50% 50%;
-  background-color: green;
-  width: 15px;
-  height: 15px;
+  background-color: ${props => props.color};
+  width: 14px;
+  height: 14px;
   z-index: 10;
 `;
 
@@ -188,13 +245,6 @@ export const UserName = styled.p`
   font-size: 14px;
   font-weight: 600;
   align-self: center;
-`;
-
-export const TextMessage = styled.p`
-  display: inline-block;
-  flex: 1;
-  color: white;
-  font-weight: 300;
 `;
 
 export const NewCountMessage = styled.p`

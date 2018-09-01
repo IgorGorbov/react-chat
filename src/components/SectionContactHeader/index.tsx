@@ -1,20 +1,47 @@
 import * as React from 'react';
-
+import ModalDeleteChat from '../../components/ModalDeleteChat';
+import { statusColors } from '../../constants/user';
 import {
   SectionContactHeader as ContactHeader,
   ContactInfoContainer,
+  UserButton,
   UserAvatar,
   Text,
-  UserButton,
 } from '../../styledComponents';
 
-const src2 = 'https://emilcarlsson.se/assets/louislitt.png';
+interface InterfaceContactHeaderProps {
+  currentUser: IUser;
+  user: IUser;
+  currentChatId: number;
+  selectedMessages: number[];
+  deleteChat: (chatId: number) => { type: string; payload: number };
+  deleteMessages: (
+    selectedMessages: number[],
+    currentUserID: number,
+    currentChatId: number,
+  ) => {
+    type: string;
+    payload: {
+      selectedMessages: number[];
+      currentUserID: number;
+      currentChatId: number;
+    };
+  };
+}
 
-const SectionContactHeader = () => {
+const SectionContactHeader = ({
+  currentUser,
+  user,
+  currentChatId,
+  deleteChat,
+  selectedMessages,
+  deleteMessages,
+}: InterfaceContactHeaderProps) => {
+  const isSelectedMessages: boolean = selectedMessages.length > 0;
   return (
     <ContactHeader>
       <UserAvatar
-        src={src2}
+        src={user.avatar}
         size="tiny"
         circular={true}
         maxheight="65px"
@@ -27,29 +54,40 @@ const SectionContactHeader = () => {
         <Text
           textColor="#000"
           textSize="20px"
-          textLineHeight="1"
+          textLineHeight="1.2"
           textWeight="500"
           textFontFamily="Titillium Web"
         >
-          Louis Litt
+          {user.name}
         </Text>
         <Text
-          textColor="green"
-          textSize="14px"
+          textColor={statusColors[user.status]}
+          textSize="15px"
           textLineHeight="1"
           textWeight="500"
           textFontFamily="Titillium Web"
         >
-          Online
+          {user.status}
         </Text>
       </ContactInfoContainer>
-      <UserButton
-        buttonwidth="40px"
-        buttonmargin="0 10px 0 auto"
-        buttonheight="35px"
-        color="red"
-        icon="user delete"
-      />
+      {isSelectedMessages ? (
+        <UserButton
+          buttonwidth="40px"
+          buttonmargin="0 10px 0 auto"
+          buttonheight="35px"
+          color="red"
+          icon="trash alternate outline"
+          onClick={() =>
+            deleteMessages(selectedMessages, currentUser.id, currentChatId)
+          }
+        />
+      ) : (
+        <ModalDeleteChat
+          userName={user.name}
+          currentChatId={currentChatId}
+          deleteChat={deleteChat}
+        />
+      )}
     </ContactHeader>
   );
 };

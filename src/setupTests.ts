@@ -9,5 +9,5 @@ import * as Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 console.error = (message: any) => {
-  throw new Error(message)
+  throw new Error(message);
 };

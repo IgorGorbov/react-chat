@@ -1,4 +1,12 @@
 export const USER_LOGIN = 'USER_LOGIN';
 export const CHANGE_USER_STATUS = 'CHANGE_USER_STATUS';
-
-
+export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
+export const SEARCH_CHAT = 'SEARCH_CHAT';
+export const CHANGE_CHAT = 'CHANGE_CHAT';
+export const NEW_CHAT = 'NEW_CHAT';
+export const DELETE_CHAT = 'DELETE_CHAT';
+export const NEW_MESSAGE = 'NEW_MESSAGE';
+export const CHOOSE_USER = 'CHOOSE_USER';
+export const SELECT_MESSAGE = 'SELECT_MESSAGE';
+export const DELETE_MESSAGES = 'DELETE_MESSAGES';
+export const READ_MESSAGES = 'READ_MESSAGES';
