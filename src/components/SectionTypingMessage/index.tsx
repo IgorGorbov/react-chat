@@ -23,19 +23,11 @@ interface ISectionTypingProps {
   currentUser: IUser;
   companion: IUser;
   currentChatId: number;
-  newMessage: (
-    currentUser: IUser,
-    currentChatId: number,
-    companion: IUser,
+  addMessage: (
     text: string,
   ) => {
     type: string;
-    payload: {
-      currentUser: IUser;
-      currentChatId: number;
-      companion: IUser;
-      text: string;
-    };
+    payload: string;
   };
 }
 
@@ -73,8 +65,7 @@ class SectionTypingMessage extends React.Component<
     this.setState({
       inputText: '',
     });
-    const { currentUser, currentChatId, newMessage, companion } = this.props;
-    newMessage(currentUser, currentChatId, companion, this.state.inputText);
+    this.props.addMessage(this.state.inputText);
   }
 
   public togglePicker(): void {

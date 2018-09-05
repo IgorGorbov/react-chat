@@ -1,25 +1,17 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { newMessage } from '../../actions';
+import { addMessage } from '../../actions';
 import SectionTypingMessage from '../../components/SectionTypingMessage';
 
 interface ITypingMessageProps {
   currentUser: IUser;
   currentChatId: number;
   companion: IUser;
-  newMessage: (
-    currentUser: IUser,
-    currentChatId: number,
-    companion: IUser,
+  addMessage: (
     text: string,
   ) => {
     type: string;
-    payload: {
-      currentUser: IUser;
-      currentChatId: number;
-      companion: IUser;
-      text: string;
-    };
+    payload: string;
   };
 }
 
@@ -27,13 +19,13 @@ const TypingMessageContainer = (
   props: ITypingMessageProps,
 ): JSX.Element | null => {
   // tslint:disable-next-line: no-shadowed-variable
-  const { newMessage, currentUser, currentChatId, companion } = props;
+  const { addMessage, currentUser, currentChatId, companion } = props;
   if (!currentChatId || !companion) {
     return null;
   }
   return (
     <SectionTypingMessage
-      newMessage={newMessage}
+      addMessage={addMessage}
       currentUser={currentUser}
       currentChatId={currentChatId}
       companion={companion}
@@ -48,22 +40,14 @@ const mapStateToProps = (state: IState) => ({
 });
 
 const mapDispatchToProps: {
-  newMessage: (
-    currentUser: IUser,
-    currentChatId: number,
-    companion: IUser,
+  addMessage: (
     text: string,
   ) => {
     type: string;
-    payload: {
-      currentUser: IUser;
-      currentChatId: number;
-      companion: IUser;
-      text: string;
-    };
+    payload: string;
   };
 } = {
-  newMessage,
+  addMessage,
 };
 
 export default connect(

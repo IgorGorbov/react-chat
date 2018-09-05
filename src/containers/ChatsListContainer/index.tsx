@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import ChatsList from '../../components/ChatsList';
 import ModalAddChat from '../../components/ModalAddChat';
-import { changeChat, newChat } from '../../actions/';
+import { changeChat, addChat, readMessages } from '../../actions/';
 import { getSearchEntities, getAvailableUsers } from '../../selectors';
 
 interface IUserListProps {
@@ -19,12 +19,13 @@ interface IUserListProps {
       companion: IUser;
     };
   };
-  newChat: (
-    currentUser: IUser,
-    companion: IUser,
+  addChat: (companion: IUser) => { type: string; payload: IUser };
+  readMessages: (
+    currentChatId: number,
+    currentUserID: number,
   ) => {
     type: string;
-    payload: { currentUser: IUser; companion: IUser };
+    payload: { currentChatId: number; currentUserID: number };
   };
 }
 
@@ -36,7 +37,8 @@ const UserListContainer = (props: IUserListProps): JSX.Element => {
     availableUsers,
     chats,
     changeChat,
-    newChat,
+    addChat,
+    readMessages,
   } = props;
   const currentUserId = currentUser.id;
 
@@ -47,9 +49,10 @@ const UserListContainer = (props: IUserListProps): JSX.Element => {
         changeChat={changeChat}
         currentUserId={currentUserId}
         currentChatId={currentChatId}
+        readMessages={readMessages}
       />
       <ModalAddChat
-        newChat={newChat}
+        addChat={addChat}
         currentUser={currentUser}
         users={availableUsers}
       />
@@ -74,16 +77,18 @@ const mapDispatchToProps: {
       companion: IUser;
     };
   };
-  newChat: (
-    currentUser: IUser,
-    companion: IUser,
+  addChat: (companion: IUser) => { type: string; payload: IUser };
+  readMessages: (
+    currentChatId: number,
+    currentUserID: number,
   ) => {
     type: string;
-    payload: { currentUser: IUser; companion: IUser };
+    payload: { currentChatId: number; currentUserID: number };
   };
 } = {
   changeChat,
-  newChat,
+  addChat,
+  readMessages,
 };
 
 export default connect(

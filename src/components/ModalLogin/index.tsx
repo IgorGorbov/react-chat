@@ -9,7 +9,7 @@ const ListItem = styled(List.Item)`
 
 interface IModalProps {
   modalOpen: boolean;
-  actionCreator: (user: IUser) => { type: string; payload: IUser };
+  registerClient: (name: string) => { type: string; payload: string };
   users: IUser[];
 }
 
@@ -24,7 +24,7 @@ class ModalLogin extends React.Component<IModalProps, IModalState> {
     this.setState({
       modalOpen: false,
     });
-    this.props.actionCreator(user);
+    this.props.registerClient(user.name);
   }
   public render() {
     const { users } = this.props;

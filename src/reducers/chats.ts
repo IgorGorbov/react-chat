@@ -6,15 +6,7 @@ const initialState: IChatMap[] | {} = {};
 export default (state = Map(initialState), { type, payload }: any) => {
   switch (type) {
     case types.NEW_CHAT: {
-      const time: any = new Date();
-      const newChat: any = {
-        [time.getMilliseconds()]: {
-          id: time.getMilliseconds(),
-          users: [payload.currentUser, payload.companion],
-          messages: [],
-        },
-      };
-      return state.merge(Map(newChat));
+      return state.set(payload.id.toString(), payload);
     }
 
     case types.DELETE_CHAT: {
@@ -42,30 +34,9 @@ export default (state = Map(initialState), { type, payload }: any) => {
 
     // tslint:disable: max-line-length
     case types.NEW_MESSAGE: {
-      const { currentUser, currentChatId, companion, text } = payload;
-      const time: any = new Date();
-      const hours =
-        time.getHours() > 9 ? time.getHours() : `0${time.getHours()}`;
-      const minutes =
-        time.getMinutes() > 9 ? time.getMinutes() : `0${time.getMinutes()}`;
-      const day = time.getDate();
-      const month = time.getMonth() + 1;
-      const year = time
-        .getFullYear()
-        .toString()
-        .slice(-2);
-      const newMessage = {
-        id: time.getMilliseconds(),
-        text,
-        from: currentUser,
-        to: companion,
-        date: `${day}/${month}/${year} - ${hours}:${minutes}`,
-        deletedBy: [],
-        isRead: false,
-      };
-      return state.update(currentChatId.toString(), (chat: any) => ({
+      return state.update(payload.chatId.toString(), (chat: any) => ({
         ...chat,
-        messages: chat.messages.concat(newMessage),
+        messages: chat.messages.concat(payload.message),
       }));
     }
 
@@ -80,7 +51,13 @@ export default (state = Map(initialState), { type, payload }: any) => {
         return [...acc, message];
       }, []);
 
-      return state.set(currentChatId.toString(), { ...currentChat, messages });
+      return state.set(currentChatId.toString(), {
+        ...currentChat,
+        messages,
+      });
+    }
+    case types.FETCH_USER_CHATS: {
+      return Map(payload);
     }
     default:
       return state;

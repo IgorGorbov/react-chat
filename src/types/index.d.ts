@@ -63,7 +63,7 @@ interface IFilters {
   selectedMessages: number[];
 }
 
-interface IImmutableSession extends Map<string, any> {
+interface IImmutableUser extends Map<string, any> {
   toJS(): IUser;
   get<K extends keyof IUser>(key: K): IUser[K];
 }
@@ -79,7 +79,7 @@ interface IImmutableIFilters extends Map<string, any> {
 }
 
 declare interface IState {
-  session: IImmutableSession;
+  session: IImmutableUser;
   currentChat: IImmutableCurrentChat;
   users: IUser[];
   chats: IChatMap[];

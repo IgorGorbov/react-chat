@@ -19,11 +19,19 @@ interface IUserListProps {
       companion: IUser;
     };
   };
+  readMessages: (
+    currentChatId: number,
+    currentUserID: number,
+  ) => {
+    type: string;
+    payload: { currentChatId: number; currentUserID: number };
+  };
 }
 
 class ChatsList extends React.Component<IUserListProps> {
   public onChangeChat(chat: IChat, user: IUser) {
     this.props.changeChat({ id: chat.id, companion: user });
+    this.props.readMessages(chat.id, this.props.currentUserId);
   }
 
   public renderChatCard(chat: IChat): JSX.Element | null {

@@ -55,12 +55,13 @@ const ContactHeaderContainer = (
   if (
     typeof currentChat === 'undefined' ||
     !Object.keys(currentChat).length ||
-    !companion
+    typeof companion === 'undefined'
   ) {
     return null;
   }
   const { messages } = currentChat;
   const currentChatId = currentChat.id;
+
   return (
     <React.Fragment>
       <SectionContactHeader

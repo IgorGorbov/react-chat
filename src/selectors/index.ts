@@ -26,7 +26,10 @@ const getChats = (state: IStore) => state.chats;
 
 const getCurrentId = (state: IStore) => state.session.get('id');
 
-const getChatCurrentId = (state: IStore) => state.currentChat.get('id');
+export const getChatCurrentId = (state: IStore) => state.currentChat.get('id');
+
+export const getCompanion = (state: IStore) =>
+  state.currentChat.get('companion');
 
 export const getSearchEntities: any = createSelector(
   getSearchText,
@@ -48,11 +51,11 @@ export const getChatById: any = createSelector(
   getChats,
   getChatCurrentId,
   (chats, id) => {
-    return chats.find((chat: any) => chat.id === id);
+    return chats.find((c: any) => c.id === id);
   },
 );
 
-const getUsers = (state: any) => state.users.toJS();
+const getUsers = (state: any) => state.users;
 
 export const getAvailableUsers: any = createSelector(
   getChats,

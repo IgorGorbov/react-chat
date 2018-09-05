@@ -27,8 +27,8 @@ class SectionMessagesList extends React.Component<IMessagesListProps> {
 
   public componentDidMount() {
     this.scrollToBottom();
-    const { currentUser, currentChatId, readMessages } = this.props;
-    readMessages(currentChatId, currentUser.id);
+    // const { currentUser, currentChatId, readMessages } = this.props;
+    // readMessages(currentChatId, currentUser.id);
   }
 
   public componentDidUpdate() {

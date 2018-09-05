@@ -17,10 +17,7 @@ const NoUsers = styled.div`
 interface IModalAddChatProps {
   currentUser: IUser;
   users: IUser[];
-  newChat: (
-    currentUser: IUser,
-    companion: IUser,
-  ) => { type: string; payload: { currentUser: IUser; companion: IUser } };
+  addChat: (companion: IUser) => { type: string; payload: IUser };
 }
 
 interface IModalAddChatState {
@@ -39,8 +36,7 @@ class ModalAddChat extends React.Component<
   };
 
   public handleClick(companion: IUser): void {
-    const { currentUser, newChat } = this.props;
-    newChat(currentUser, companion);
+    this.props.addChat(companion);
   }
   public render() {
     const { users } = this.props;

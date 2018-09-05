@@ -7,12 +7,14 @@
     "@types/enzyme": "^3.1.13",
     "@types/enzyme-adapter-react-16": "^1.0.3",
     "@types/immutable": "^3.8.7",
+    "@types/socket.io": "^1.4.38",
     "@types/webfontloader": "^1.6.29",
     "emoji-mart": "^2.8.1",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",
     "immutable": "^3.8.2",
+    "nodemon": "^1.18.4",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
@@ -26,13 +28,14 @@
     "semantic-ui-css": "^2.3.3",
     "semantic-ui-react": "^0.82.2",
     "socket.io": "^2.1.1",
+    "socket.io-client": "^2.1.1",
     "styled-components": "^3.4.2",
     "webfontloader": "^1.6.28"
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "server": "node src/server/server.js",
-    "dev-server": "nodemon src/server/server.js",
+    "server": "ts-node src/server/server.ts",
+    "dev-server": "nodemon --exec ts-node src/server/server.ts",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom --coverage --collectCoverageFrom=!src/setupTests.ts --collectCoverageFrom=!src/index.tsx --collectCoverageFrom=src/**/*tsx --collectCoverageFrom=src/**/*ts",
     "eject": "react-scripts-ts eject"
@@ -50,6 +53,7 @@
     "coveralls": "^3.0.2",
     "prettier": "^1.14.2",
     "redux-devtools-extension": "^2.13.5",
+    "ts-node": "^7.0.1",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.0.1"
   }

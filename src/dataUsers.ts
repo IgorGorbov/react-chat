@@ -1,85 +1,88 @@
-// tslint: disable
-import { defaultAvatar, Status } from './constants/user';
+enum StatusUser {
+  Online = 'Online',
+  Offline = 'Offline',
+  Away = 'Away',
+  Busy = 'Busy',
+}
 
-const users = [
+const initUsers = [
   {
     id: 1,
     name: `Mike Ross`,
     avatar: 'https://emilcarlsson.se/assets/mikeross.png',
-    status: Status.Offline
+    status: StatusUser.Offline,
   },
   {
-  id: 2,
+    id: 2,
     name: 'Vincent Lash',
-  avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
-  status: Status.Online,
+    avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
+    status: StatusUser.Online,
   },
   {
     id: 3,
-      name: 'Louis Litt',
+    name: 'Louis Litt',
     avatar: 'https://emilcarlsson.se/assets/louislitt.png',
-    status: Status.Away,
+    status: StatusUser.Away,
   },
   {
     id: 4,
-      name: 'Mary R. Morales',
+    name: 'Mary R. Morales',
     avatar: 'https://emilcarlsson.se/assets/katrinabennett.png',
-    status: Status.Busy,
+    status: StatusUser.Busy,
   },
   {
     id: 5,
-      name: 'Justin Ingram',
+    name: 'Justin Ingram',
     avatar: 'https://emilcarlsson.se/assets/jonathansidwell.png',
-    status: Status.Offline,
+    status: StatusUser.Offline,
   },
   {
     id: 6,
-      name: 'Carla Hines',
+    name: 'Carla Hines',
     avatar: 'https://emilcarlsson.se/assets/donnapaulsen.png',
-    status: Status.Online,
+    status: StatusUser.Online,
   },
   {
     id: 7,
-      name: 'Cindy Lowe',
+    name: 'Cindy Lowe',
     avatar: 'https://emilcarlsson.se/assets/rachelzane.png',
-    status: Status.Online,
+    status: StatusUser.Online,
   },
   {
     id: 8,
-      name: 'Phillip Gilliam',
+    name: 'Phillip Gilliam',
     avatar: 'https://emilcarlsson.se/assets/harveyspecter.png',
-    status: Status.Away,
+    status: StatusUser.Away,
   },
   {
     id: 9,
-      name: 'John Trottier',
+    name: 'John Trottier',
     avatar: 'https://emilcarlsson.se/assets/charlesforstman.png',
-    status: Status.Online,
+    status: StatusUser.Online,
   },
   {
     id: 10,
-      name: 'Joseph Kelly',
+    name: 'Joseph Kelly',
     avatar: 'https://emilcarlsson.se/assets/haroldgunderson.png',
-    status: Status.Busy,
-  }
+    status: StatusUser.Busy,
+  },
 ];
 
-
-export const chats = {
+const initChats = {
   1: {
     id: 1,
     users: [
       {
         id: 1,
         name: `Mike Ross`,
-        avatar: defaultAvatar,
-        status: Status.Offline,
+        avatar: 'https://emilcarlsson.se/assets/mikeross.png',
+        status: StatusUser.Offline,
       },
       {
         id: 2,
         name: 'Vincent Lash',
         avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
-        status: Status.Offline,
+        status: StatusUser.Offline,
       },
     ],
     messages: [
@@ -90,14 +93,14 @@ export const chats = {
         from: {
           id: 1,
           name: `Mike Ross`,
-          avatar: defaultAvatar,
-          status: Status.Offline,
+          avatar: 'https://emilcarlsson.se/assets/mikeross.png',
+          status: StatusUser.Offline,
         },
         to: {
           id: 2,
           name: 'Vincent Lash',
           avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
-          status: Status.Online,
+          status: StatusUser.Online,
         },
         date: '16:15',
         isRead: false,
@@ -110,13 +113,13 @@ export const chats = {
           id: 2,
           name: 'Vincent Lash',
           avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
-          status: Status.Online,
+          status: StatusUser.Online,
         },
         to: {
           id: 1,
           name: `Mike Ross`,
-          avatar: defaultAvatar,
-          status: Status.Offline,
+          avatar: 'https://emilcarlsson.se/assets/mikeross.png',
+          status: StatusUser.Offline,
         },
         date: '16:25',
         isRead: false,
@@ -130,18 +133,21 @@ export const chats = {
       {
         id: 1,
         name: `Mike Ross`,
-        avatar: defaultAvatar,
-        status: Status.Offline,
+        avatar: 'https://emilcarlsson.se/assets/mikeross.png',
+        status: StatusUser.Offline,
       },
       {
         id: 3,
         name: 'Louis Litt',
         avatar: 'https://emilcarlsson.se/assets/louislitt.png',
-        status: Status.Away,
+        status: StatusUser.Away,
       },
     ],
     messages: [],
   },
 };
 
-export default users;
+module.exports = {
+  initUsers,
+  initChats,
+};

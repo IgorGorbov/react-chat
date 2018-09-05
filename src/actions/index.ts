@@ -1,17 +1,26 @@
 import {
+  CLIENT_CONNECT,
+  REGISTER_CLIENT,
   USER_LOGIN,
   FETCH_ALL_USERS,
+  FETCH_USER_CHATS,
   SEARCH_CHAT,
   CHANGE_USER_STATUS,
   CHANGE_CHAT,
+  ADD_CHAT,
   NEW_CHAT,
   DELETE_CHAT,
+  ADD_MESSAGE,
   NEW_MESSAGE,
   CHOOSE_USER,
   SELECT_MESSAGE,
   DELETE_MESSAGES,
   READ_MESSAGES,
 } from '../constants/actionTypes';
+
+export const clientConnect = () => ({
+  type: CLIENT_CONNECT,
+});
 
 export const userLogin = () => ({
   type: USER_LOGIN,
@@ -35,9 +44,19 @@ export const fetchAllUsers = (users: IUser[]) => ({
   payload: users,
 });
 
+export const fetchUserChats = (chats: IChat[]) => ({
+  type: FETCH_USER_CHATS,
+  payload: chats,
+});
+
 export const search = (text: string) => ({
   type: SEARCH_CHAT,
   payload: text,
+});
+
+export const addChat = (companion: IUser) => ({
+  type: ADD_CHAT,
+  payload: companion,
 });
 
 export const newChat = (currentUser: IUser, companion: IUser) => ({
@@ -50,19 +69,22 @@ export const deleteChat = (chatId: number) => ({
   payload: chatId,
 });
 
-export const newMessage = (
-  currentUser: IUser,
-  currentChatId: number,
-  companion: IUser,
-  text: string,
-) => ({
+export const addMessage = (text: string) => ({
+  type: ADD_MESSAGE,
+  payload: text,
+});
+
+export const newMessage = (chatId: number, message: IMessage) => ({
   type: NEW_MESSAGE,
   payload: {
-    currentUser,
-    currentChatId,
-    companion,
-    text,
+    chatId,
+    message,
   },
+});
+
+export const registerClient = (name: string) => ({
+  type: REGISTER_CLIENT,
+  payload: name,
 });
 
 export const chooseUser = (user: IUser) => ({

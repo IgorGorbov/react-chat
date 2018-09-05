@@ -6,6 +6,7 @@
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js",
       "src/setupTests.ts",
+      "src/server/*",
       "src/users.js"
     ]
   },
@@ -15,6 +16,13 @@
     "max-line-length": [true, 80],
     "no-console": false,
     "jsx-no-lambda": false,
-    "no-var-requires": false
+    "no-var-requires": false,
+    "no-empty": false,
+    "member-ordering": false,
+    "only-arrow-functions": false,
+    "prefer-const": false,
+    "no-angle-bracket-type-assertion": false,
+    "one-variable-per-declaration": false,
+    "no-shadowed-variable": false
   }
 }
