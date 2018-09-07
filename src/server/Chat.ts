@@ -1,4 +1,4 @@
-const initialData = require('../chats');
+const initialData = require('../dataUsers').initChats;
 
 module.exports = function() {
   const chats = new Map(initialData);

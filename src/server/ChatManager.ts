@@ -1,7 +1,14 @@
-const helpers = require('./helpers');
 const initialChats: any = require('../dataUsers').initChats;
 
+declare interface IUser {
+  id: number;
+  name: string;
+  avatar: string;
+  status: string;
+}
+
 module.exports = function() {
+  const helpers = require('./helpers');
   let chats: any = new Map(<any>(
     Object.values(initialChats).map((c: any) => [c.id, c])
   ));
@@ -10,8 +17,26 @@ module.exports = function() {
     return helpers.mapToObj(chats);
   }
 
-  function getUserChats(user: any) {
-    const allChats = helpers.mapToObj(chats);
+  function updateChats(updateUsers: IUser[]) {
+    if (!updateUsers) return;
+    const allChats = Object.values(helpers.mapToObj(chats));
+    return allChats.map((chat: any) => {
+      const chatUsers = chat.users.map((chatUser: any) => {
+        let afterUpUser = chatUser;
+        updateUsers.forEach((updateUser: any) => {
+          if (updateUser.id === chatUser.id) {
+            afterUpUser = updateUser;
+          }
+        });
+        return afterUpUser;
+      });
+      return { ...chat, users: chatUsers };
+    });
+  }
+
+  function getUserChats(user: IUser, users: IUser[]) {
+    const allChats = helpers.objToMap(updateChats(users));
+
     return Object.values(allChats).reduce((acc: any, chat: any) => {
       const isBelongs = chat.users.some((u: any) => u.id === user.id);
       if (isBelongs) {
@@ -21,7 +46,7 @@ module.exports = function() {
     }, {});
   }
 
-  function addChat(user: any, companion: any) {
+  function addChat(user: IUser, companion: IUser) {
     const id = new Date().getMilliseconds();
     const newChat: any = {
       id,
@@ -32,11 +57,20 @@ module.exports = function() {
     return newChat;
   }
 
+  function removeChatById(id: any) {
+    chats.delete(id);
+  }
+
   function getChatById(id: any) {
     return chats.get(id);
   }
 
-  function addMessage(text: any, chatId: any, user: any, companion: any) {
+  function addMessage(
+    text: string,
+    chatId: number,
+    user: IUser,
+    companion: IUser,
+  ) {
     const currentChat = getChatById(chatId);
     const time = helpers.getTime();
 
@@ -57,11 +91,35 @@ module.exports = function() {
     return newMessage;
   }
 
+  function deleteMessages({
+    selectedMessages,
+    currentUserID,
+    currentChatId,
+  }: {
+    selectedMessages: number[];
+    currentUserID: number;
+    currentChatId: number;
+  }) {
+    const currentChat = getChatById(currentChatId);
+    const messages = currentChat.messages;
+    return messages.map((message: any) => {
+      if (selectedMessages.includes(message.id)) {
+        return {
+          ...message,
+          deletedBy: [...message.deletedBy, currentUserID],
+        };
+      }
+      return message;
+    });
+  }
+
   return {
     getAllChats,
     getUserChats,
     addChat,
+    removeChatById,
     addMessage,
+    deleteMessages,
     getChatById,
   };
 };

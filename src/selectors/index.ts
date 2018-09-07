@@ -1,17 +1,6 @@
 import { createSelector } from 'reselect';
 import { Map } from 'immutable';
 
-// interface IFilters {
-//   search: string
-// }
-
-//   (state: IStore) => {
-//   const currentID = state.session.get('id');
-//   return state.chats.map((chat: any) =>
-//     chat.users.find((user: any) => user.id !== currentID),
-//   );
-// };
-
 interface IStore {
   session: Map<string, string | number>;
   chats: any;
@@ -25,6 +14,8 @@ const getSearchText = (state: IStore) =>
 const getChats = (state: IStore) => state.chats;
 
 const getCurrentId = (state: IStore) => state.session.get('id');
+
+export const getCurrentUser = (state: IStore) => state.session.toJS();
 
 export const getChatCurrentId = (state: IStore) => state.currentChat.get('id');
 

@@ -1,7 +1,6 @@
 import {
   CLIENT_CONNECT,
   REGISTER_CLIENT,
-  USER_LOGIN,
   FETCH_ALL_USERS,
   FETCH_USER_CHATS,
   SEARCH_CHAT,
@@ -16,14 +15,11 @@ import {
   SELECT_MESSAGE,
   DELETE_MESSAGES,
   READ_MESSAGES,
+  REFRESH_MESSAGES,
 } from '../constants/actionTypes';
 
 export const clientConnect = () => ({
   type: CLIENT_CONNECT,
-});
-
-export const userLogin = () => ({
-  type: USER_LOGIN,
 });
 
 export const changeUserStatus = (status: string) => ({
@@ -104,6 +100,11 @@ export const deleteMessages = (
 ) => ({
   type: DELETE_MESSAGES,
   payload: { selectedMessages, currentUserID, currentChatId },
+});
+
+export const refreshMessages = (messages: number[], currentChatId: number) => ({
+  type: REFRESH_MESSAGES,
+  payload: { messages, currentChatId },
 });
 
 export const readMessages = (currentChatId: number, currentUserID: number) => ({

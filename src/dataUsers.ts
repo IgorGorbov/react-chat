@@ -16,19 +16,19 @@ const initUsers = [
     id: 2,
     name: 'Vincent Lash',
     avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
-    status: StatusUser.Online,
+    status: StatusUser.Offline,
   },
   {
     id: 3,
     name: 'Louis Litt',
     avatar: 'https://emilcarlsson.se/assets/louislitt.png',
-    status: StatusUser.Away,
+    status: StatusUser.Offline,
   },
   {
     id: 4,
     name: 'Mary R. Morales',
     avatar: 'https://emilcarlsson.se/assets/katrinabennett.png',
-    status: StatusUser.Busy,
+    status: StatusUser.Offline,
   },
   {
     id: 5,
@@ -40,68 +40,45 @@ const initUsers = [
     id: 6,
     name: 'Carla Hines',
     avatar: 'https://emilcarlsson.se/assets/donnapaulsen.png',
-    status: StatusUser.Online,
+    status: StatusUser.Offline,
   },
   {
     id: 7,
     name: 'Cindy Lowe',
     avatar: 'https://emilcarlsson.se/assets/rachelzane.png',
-    status: StatusUser.Online,
+    status: StatusUser.Offline,
   },
   {
     id: 8,
     name: 'Phillip Gilliam',
     avatar: 'https://emilcarlsson.se/assets/harveyspecter.png',
-    status: StatusUser.Away,
+    status: StatusUser.Offline,
   },
   {
     id: 9,
     name: 'John Trottier',
     avatar: 'https://emilcarlsson.se/assets/charlesforstman.png',
-    status: StatusUser.Online,
+    status: StatusUser.Offline,
   },
   {
     id: 10,
     name: 'Joseph Kelly',
     avatar: 'https://emilcarlsson.se/assets/haroldgunderson.png',
-    status: StatusUser.Busy,
+    status: StatusUser.Offline,
   },
 ];
 
 const initChats = {
   1: {
     id: 1,
-    users: [
-      {
-        id: 1,
-        name: `Mike Ross`,
-        avatar: 'https://emilcarlsson.se/assets/mikeross.png',
-        status: StatusUser.Offline,
-      },
-      {
-        id: 2,
-        name: 'Vincent Lash',
-        avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
-        status: StatusUser.Offline,
-      },
-    ],
+    users: [initUsers[0], initUsers[1]],
     messages: [
       {
         id: 1,
         text: 'Hello!',
         deletedBy: [],
-        from: {
-          id: 1,
-          name: `Mike Ross`,
-          avatar: 'https://emilcarlsson.se/assets/mikeross.png',
-          status: StatusUser.Offline,
-        },
-        to: {
-          id: 2,
-          name: 'Vincent Lash',
-          avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
-          status: StatusUser.Online,
-        },
+        from: initUsers[0],
+        to: initUsers[1],
         date: '16:15',
         isRead: false,
       },
@@ -109,18 +86,8 @@ const initChats = {
         id: 2,
         text: 'Hi!',
         deletedBy: [],
-        from: {
-          id: 2,
-          name: 'Vincent Lash',
-          avatar: 'https://emilcarlsson.se/assets/danielhardman.png',
-          status: StatusUser.Online,
-        },
-        to: {
-          id: 1,
-          name: `Mike Ross`,
-          avatar: 'https://emilcarlsson.se/assets/mikeross.png',
-          status: StatusUser.Offline,
-        },
+        from: initUsers[1],
+        to: initUsers[0],
         date: '16:25',
         isRead: false,
       },
@@ -129,20 +96,7 @@ const initChats = {
 
   2: {
     id: 2,
-    users: [
-      {
-        id: 1,
-        name: `Mike Ross`,
-        avatar: 'https://emilcarlsson.se/assets/mikeross.png',
-        status: StatusUser.Offline,
-      },
-      {
-        id: 3,
-        name: 'Louis Litt',
-        avatar: 'https://emilcarlsson.se/assets/louislitt.png',
-        status: StatusUser.Away,
-      },
-    ],
+    users: [initUsers[0], initUsers[2]],
     messages: [],
   },
 };

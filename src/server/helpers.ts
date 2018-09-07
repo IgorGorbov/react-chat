@@ -1,4 +1,5 @@
 const mapToObj = (map: any) => {
+  if (!map) return {};
   const obj = {};
   map.forEach((v: any, k: any) => {
     obj[k] = v;
@@ -7,10 +8,15 @@ const mapToObj = (map: any) => {
 };
 
 const objToMap = (obj: any) => {
+  if (!obj) return {};
   return obj.reduce(
     (acc: any, val: any) => ({ ...acc, ...{ [val.id]: val } }),
     {},
   );
+};
+
+const mapToArr = (map: any) => {
+  return Object.values(map);
 };
 
 const getTime = () => {
@@ -40,5 +46,6 @@ const getTime = () => {
 module.exports = {
   mapToObj,
   objToMap,
+  mapToArr,
   getTime,
 };

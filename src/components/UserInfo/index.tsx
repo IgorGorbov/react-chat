@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { UserInfoWrapper, UserAvatar, Text } from '../../styledComponents';
 import UserStatus from '../UserStatus';
-import { statusColors } from '../../constants/user';
+import { statusColors, Status } from '../../constants/user';
 
 interface IUserInfoProps {
   user: IUser;
-  userLogin: () => { type: string };
   changeUserStatus: (status: string) => { type: string; payload: string };
 }
 
@@ -19,7 +18,7 @@ class UserInfo extends React.Component<IUserInfoProps, IUserInfoState> {
   };
 
   public componentDidMount(): void {
-    this.props.userLogin();
+    this.props.changeUserStatus(Status.Online);
   }
 
   public handleClickAvatar(): void {

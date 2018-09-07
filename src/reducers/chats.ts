@@ -13,22 +13,11 @@ export default (state = Map(initialState), { type, payload }: any) => {
       return state.filter((chat: any) => chat.id !== payload);
     }
 
-    case types.DELETE_MESSAGES: {
-      const { selectedMessages, currentUserID, currentChatId } = payload;
-      const currentChat: any = state.get(currentChatId.toString());
-      const messages: any = currentChat.messages;
-      const afterDelete = messages.map((message: any) => {
-        if (selectedMessages.includes(message.id)) {
-          return {
-            ...message,
-            deletedBy: [...message.deletedBy, currentUserID],
-          };
-        }
-        return message;
-      });
+    case types.REFRESH_MESSAGES: {
+      const { currentChatId, messages } = payload;
       return state.update(currentChatId.toString(), (chat: any) => ({
         ...chat,
-        messages: afterDelete,
+        messages,
       }));
     }
 
@@ -56,9 +45,24 @@ export default (state = Map(initialState), { type, payload }: any) => {
         messages,
       });
     }
+
     case types.FETCH_USER_CHATS: {
       return Map(payload);
     }
+
+    case types.UPDATE_USER: {
+      const stateIds = Object.keys(state.toJS());
+      const chatsIds = payload.chatsIds;
+      const chatID: any = stateIds.find((id: any) => chatsIds.includes(id));
+
+      return state.update(chatID.toString(), (chat: any) => {
+        const companion = chat.users.filter(
+          (u: any) => u.id !== payload.user.id,
+        );
+        return { ...chat, users: [payload.user, companion] };
+      });
+    }
+
     default:
       return state;
   }

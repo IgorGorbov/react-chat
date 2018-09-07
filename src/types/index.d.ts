@@ -91,4 +91,19 @@ interface Irefs {
   stepInput: HTMLInputElement;
 }
 
+declare interface ISocket {
+  dispatchAction: (action: object) => void;
+  changeUserStatus: (user: IUser) => void;
+  getUsers: (type: string, cb: (err: any, users: IUser[]) => void) => void;
+  register: (name: string, cb: (err: any, user: IUser) => void) => void;
+  addChat: (companion: IUser, cb: (err: any, chat: IChat) => void) => void;
+  deleteChat: (idChat: number) => void;
+  getUserChats: (cb: (err: any, chats: IChat[]) => void) => void;
+  addMessage: (text: string, chatId: number, companion: IUser) => void;
+  deleteMessages: (
+    payload: number[],
+    cb: (err: any, messages: IMessage[]) => void,
+  ) => void;
+}
+
 declare module 'react-wow';
