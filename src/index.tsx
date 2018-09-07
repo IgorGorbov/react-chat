@@ -6,7 +6,7 @@ import { injectGlobal } from 'styled-components';
 
 import App from './App';
 
-import store from './store';
+import store from './client/store';
 
 import 'emoji-mart/css/emoji-mart.css';
 import 'semantic-ui-css/semantic.min.css';

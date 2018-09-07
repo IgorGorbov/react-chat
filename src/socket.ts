@@ -1,4 +1,4 @@
-import * as types from './constants/actionTypes';
+import * as types from './client/constants/actionTypes';
 
 const io = require('socket.io-client');
 

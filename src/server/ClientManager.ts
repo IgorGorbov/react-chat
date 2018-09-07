@@ -2,17 +2,10 @@ import { Socket } from 'socket.io';
 
 const users = require('../dataUsers');
 
-declare interface IUser {
-  id: number;
-  name: string;
-  avatar: string;
-  status: string;
-}
-
 declare interface IClient {
   id: number;
   client: Socket;
-  user: IUser;
+  user: any;
 }
 
 module.exports = function() {
@@ -23,7 +16,7 @@ module.exports = function() {
     clients.set(client.id, { client });
   }
 
-  function registerClient(client: Socket, user: IUser) {
+  function registerClient(client: Socket, user: any) {
     clients.set(client.id, { client, user });
   }
 
@@ -31,9 +24,9 @@ module.exports = function() {
     clients.delete(client.id);
   }
 
-  function changeUser(client: Socket, user: IUser) {
+  function changeUser(client: Socket, user: any) {
     clients.set(client.id, { client, user });
-    allUsers.forEach((u: IUser, i: number) => {
+    allUsers.forEach((u: any, i: number) => {
       if (u.id === user.id) {
         allUsers[i] = user;
       }
@@ -56,15 +49,15 @@ module.exports = function() {
         .filter(c => c.user)
         .map(c => c.user.name),
     );
-    return allUsers.filter((u: IUser) => !usersTaken.has(u.name));
+    return allUsers.filter((u: any) => !usersTaken.has(u.name));
   }
 
   function isUserAvailable(userName: string) {
-    return getUsers('all').some((u: IUser) => u.name === userName);
+    return getUsers('all').some((u: any) => u.name === userName);
   }
 
   function getCharacterByName(userName: string) {
-    return allUsers.find((u: IUser) => u.name === userName);
+    return allUsers.find((u: any) => u.name === userName);
   }
 
   function getUserByClientId(clientId: number) {

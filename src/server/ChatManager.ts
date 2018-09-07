@@ -1,14 +1,9 @@
 const initialChats: any = require('../dataUsers').initChats;
 
-declare interface IUser {
-  id: number;
-  name: string;
-  avatar: string;
-  status: string;
-}
-
 module.exports = function() {
   const helpers = require('./helpers');
+  let jsonfile = require('fs');
+
   let chats: any = new Map(<any>(
     Object.values(initialChats).map((c: any) => [c.id, c])
   ));
@@ -17,7 +12,7 @@ module.exports = function() {
     return helpers.mapToObj(chats);
   }
 
-  function updateChats(updateUsers: IUser[]) {
+  function updateChats(updateUsers: any) {
     if (!updateUsers) return;
     const allChats = Object.values(helpers.mapToObj(chats));
     return allChats.map((chat: any) => {
@@ -34,7 +29,7 @@ module.exports = function() {
     });
   }
 
-  function getUserChats(user: IUser, users: IUser[]) {
+  function getUserChats(user: any, users: any) {
     const allChats = helpers.objToMap(updateChats(users));
 
     return Object.values(allChats).reduce((acc: any, chat: any) => {
@@ -46,7 +41,7 @@ module.exports = function() {
     }, {});
   }
 
-  function addChat(user: IUser, companion: IUser) {
+  function addChat(user: any, companion: any) {
     const id = new Date().getMilliseconds();
     const newChat: any = {
       id,
@@ -65,12 +60,7 @@ module.exports = function() {
     return chats.get(id);
   }
 
-  function addMessage(
-    text: string,
-    chatId: number,
-    user: IUser,
-    companion: IUser,
-  ) {
+  function addMessage(text: string, chatId: number, user: any, companion: any) {
     const currentChat = getChatById(chatId);
     const time = helpers.getTime();
 
@@ -87,6 +77,16 @@ module.exports = function() {
     };
     currentChat.messages.push(newMessage);
     chats.set(currentChat.id, currentChat);
+
+    let jsonContent = JSON.stringify(helpers.mapToObj(chats), null, 4);
+    setTimeout(() => {
+      jsonfile.writeFile('output.json', jsonContent, function(err: any) {
+        if (err) {
+          return console.log(err);
+        }
+        console.log('JSON file has been saved.');
+      });
+    }, 5000);
 
     return newMessage;
   }

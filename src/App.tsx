@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RootContainer from './containers/RootContainer';
+import RootContainer from './client/containers/RootContainer';
 
 class App extends React.Component {
   public render(): JSX.Element {

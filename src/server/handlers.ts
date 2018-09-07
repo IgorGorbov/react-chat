@@ -2,13 +2,6 @@ import { Socket } from 'socket.io';
 
 const helpers = require('./helpers');
 
-declare interface IUser {
-  id: number;
-  name: string;
-  avatar: string;
-  status: string;
-}
-
 module.exports = function(
   client: Socket,
   clientManager: any,
@@ -37,7 +30,7 @@ module.exports = function(
     return callback(null, clientUser);
   }
 
-  function handleAddChat(companion: IUser, callback: any) {
+  function handleAddChat(companion: any, callback: any) {
     const user = clientManager.getUserByClientId(client.id);
     const newChat = chatManager.addChat(user, companion);
     const clientCompanion = clientManager.getUserByName(companion.name);
@@ -71,12 +64,12 @@ module.exports = function(
     return callback(null, chats);
   }
 
-  function handleMessage(text: string, chatId: number, companion: IUser) {
+  function handleMessage(text: string, chatId: number, companion: any) {
     const user = clientManager.getUserByClientId(client.id);
     const message = chatManager.addMessage(text, chatId, user, companion);
     const chat = chatManager.getChatById(chatId);
 
-    chat.users.forEach((user: IUser) => {
+    chat.users.forEach((user: any) => {
       const socket = clientManager.getUserByName(user.name);
       if (socket) {
         socket.client.send(chatId, message);
@@ -90,7 +83,7 @@ module.exports = function(
     return callback(null, messages);
   }
 
-  function handleChangeUserStatus(user: IUser) {
+  function handleChangeUserStatus(user: any) {
     const updateUser = clientManager.changeUser(client, user);
     const chats = helpers.mapToArr(
       chatManager.getUserChats(updateUser, clientManager.getUsers('selected')),

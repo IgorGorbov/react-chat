@@ -1,0 +1,229 @@
+{
+    "1": {
+        "id": 1,
+        "users": [
+            {
+                "id": 1,
+                "name": "Mike Ross",
+                "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                "status": "Offline"
+            },
+            {
+                "id": 2,
+                "name": "Vincent Lash",
+                "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                "status": "Offline"
+            }
+        ],
+        "messages": [
+            {
+                "id": 1,
+                "text": "Hello!",
+                "deletedBy": [],
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Offline"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "16:15",
+                "isRead": false
+            },
+            {
+                "id": 2,
+                "text": "Hi!",
+                "deletedBy": [],
+                "from": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "to": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Offline"
+                },
+                "date": "16:25",
+                "isRead": false
+            },
+            {
+                "id": "2018-09-07T20:05:04.217Z",
+                "text": "sdfsdf",
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Online"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "7/9/18 - 23:05",
+                "deletedBy": [],
+                "isRead": false
+            },
+            {
+                "id": "2018-09-07T20:05:05.672Z",
+                "text": "sdfsdf",
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Online"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "7/9/18 - 23:05",
+                "deletedBy": [],
+                "isRead": false
+            },
+            {
+                "id": "2018-09-07T20:05:06.997Z",
+                "text": "sdfsdf",
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Online"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "7/9/18 - 23:05",
+                "deletedBy": [],
+                "isRead": false
+            },
+            {
+                "id": "2018-09-07T20:05:08.407Z",
+                "text": "sdfsdf",
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Online"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "7/9/18 - 23:05",
+                "deletedBy": [],
+                "isRead": false
+            },
+            {
+                "id": "2018-09-07T20:05:09.644Z",
+                "text": "sdfsdf",
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Online"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "7/9/18 - 23:05",
+                "deletedBy": [],
+                "isRead": false
+            },
+            {
+                "id": "2018-09-07T20:05:15.035Z",
+                "text": "sdfsdf",
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Online"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "7/9/18 - 23:05",
+                "deletedBy": [],
+                "isRead": false
+            },
+            {
+                "id": "2018-09-07T20:05:20.054Z",
+                "text": "sdfsdf",
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Online"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "7/9/18 - 23:05",
+                "deletedBy": [],
+                "isRead": false
+            },
+            {
+                "id": "2018-09-07T20:05:21.383Z",
+                "text": "sdfsdf",
+                "from": {
+                    "id": 1,
+                    "name": "Mike Ross",
+                    "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                    "status": "Online"
+                },
+                "to": {
+                    "id": 2,
+                    "name": "Vincent Lash",
+                    "avatar": "https://emilcarlsson.se/assets/danielhardman.png",
+                    "status": "Offline"
+                },
+                "date": "7/9/18 - 23:05",
+                "deletedBy": [],
+                "isRead": false
+            }
+        ]
+    },
+    "2": {
+        "id": 2,
+        "users": [
+            {
+                "id": 1,
+                "name": "Mike Ross",
+                "avatar": "https://emilcarlsson.se/assets/mikeross.png",
+                "status": "Offline"
+            },
+            {
+                "id": 3,
+                "name": "Louis Litt",
+                "avatar": "https://emilcarlsson.se/assets/louislitt.png",
+                "status": "Offline"
+            }
+        ],
+        "messages": []
+    }
+}

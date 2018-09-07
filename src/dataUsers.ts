@@ -72,26 +72,7 @@ const initChats = {
   1: {
     id: 1,
     users: [initUsers[0], initUsers[1]],
-    messages: [
-      {
-        id: 1,
-        text: 'Hello!',
-        deletedBy: [],
-        from: initUsers[0],
-        to: initUsers[1],
-        date: '16:15',
-        isRead: false,
-      },
-      {
-        id: 2,
-        text: 'Hi!',
-        deletedBy: [],
-        from: initUsers[1],
-        to: initUsers[0],
-        date: '16:25',
-        isRead: false,
-      },
-    ],
+    messages: [],
   },
 
   2: {
