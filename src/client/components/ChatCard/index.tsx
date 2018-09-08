@@ -23,7 +23,11 @@ const ChatCard = ({ user, chat, onChangeChat, isActive }: IChatCardProps) => {
   const inBox: any = chat.messages.filter(
     (message: IMessage) => message.to.id !== user.id,
   );
-  const lastMessage = inBox.length ? [...inBox].pop().text.slice(0, 10) : '';
+  const lastMessage = inBox.length
+    ? [...inBox].pop().text.length > 20
+      ? [...inBox].pop().text.slice(0, 20) + '...'
+      : [...inBox].pop().text
+    : '';
   const countNewMessages = inBox.reduce(
     (acc: number, message: IMessage) => acc + Number(!message.isRead),
     0,

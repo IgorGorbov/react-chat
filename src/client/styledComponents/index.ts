@@ -5,14 +5,14 @@ export const GridLayout = styled.div`
   display: grid;
   min-height: 550px;
   margin: 80px auto 0 auto;
-  width: 230px;
+  width: 240px;
   grid-template-columns: 1fr 3fr;
   grid-auto-rows: minmax(20px, auto);
   background-color: #485f78;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   transition: width 0.25s linear;
   &.withChat {
-    width: 75%;
+    width: 85%;
   }
 `;
 
