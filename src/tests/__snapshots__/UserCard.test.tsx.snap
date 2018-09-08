@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing UserList snapshot UserList 1`] = `
+<UserCard
+  avatar="https://emilcarlsson.se/assets/louislitt.png"
+  id={1}
+  name="Louis Litt"
+>
+  <styled.div>
+    <div
+      className="sc-jzJRlG ikoaaf"
+    >
+      <styled.div>
+        <div
+          className="sc-cSHVUG hDUXUW"
+        >
+          <Styled(Image)
+            bordercolor="white"
+            bordersize="1px"
+            circular={true}
+            maxheight="65px"
+            maxwidth="65px"
+            size="tiny"
+            src="https://emilcarlsson.se/assets/louislitt.png"
+          >
+            <Image
+              as="img"
+              bordercolor="white"
+              bordersize="1px"
+              circular={true}
+              className="sc-htpNat drfAkD"
+              maxheight="65px"
+              maxwidth="65px"
+              size="tiny"
+              src="https://emilcarlsson.se/assets/louislitt.png"
+              ui={true}
+            >
+              <img
+                bordercolor="white"
+                bordersize="1px"
+                className="ui tiny circular image sc-htpNat drfAkD"
+                maxheight="65px"
+                maxwidth="65px"
+                src="https://emilcarlsson.se/assets/louislitt.png"
+              />
+            </Image>
+          </Styled(Image)>
+          <styled.span>
+            <span
+              className="sc-kAzzGY bhplhq"
+            />
+          </styled.span>
+        </div>
+      </styled.div>
+      <styled.div>
+        <div
+          className="sc-chPdSV jmNmdm"
+        >
+          <styled.p>
+            <p
+              className="sc-kgoBCf eyQkMk"
+            >
+              Louis Litt
+            </p>
+          </styled.p>
+          <styled.p>
+            <p
+              className="sc-kGXeez bpwcQb"
+            >
+              Lorem ipsum dolor sit amet.
+            </p>
+          </styled.p>
+        </div>
+      </styled.div>
+      <styled.p>
+        <p
+          className="sc-kpOJdX fuYgIr"
+        >
+          3
+        </p>
+      </styled.p>
+    </div>
+  </styled.div>
+</UserCard>
+`;

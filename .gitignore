@@ -25,4 +25,6 @@ yarn.lock
 .idea
 .idea/codeStyles/Project.xml
 
-./coverage 
+./coverage
+
+output\.json

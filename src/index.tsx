@@ -1,10 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import * as WebFont from 'webfontloader';
 import { injectGlobal } from 'styled-components';
 
 import App from './App';
 
+import store from './client/store';
+
+import 'emoji-mart/css/emoji-mart.css';
 import 'semantic-ui-css/semantic.min.css';
 
 WebFont.load({
@@ -26,4 +30,9 @@ injectGlobal`
   }
 `;
 
-ReactDOM.render(<App />, document.getElementById('root') as HTMLElement);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root') as HTMLElement,
+);

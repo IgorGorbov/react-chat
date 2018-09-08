@@ -4,7 +4,92 @@ exports[`testing Chat component snapshot Chat component 1`] = `
 <styled.div>
   <SectionContacts />
   <SectionContactHeader />
-  <SectionMessagesList />
+  <SectionMessagesList
+    messages={
+      Array [
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Mike Ross",
+          "id": "1",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet, onsectetur adipisicing  onsectetur adipisicing consectetur adipisicing elit. Porro!",
+          "to": "Louis Litt",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Louis Litt",
+          "id": "2",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet",
+          "to": "Mike Ross",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Mike Ross",
+          "id": "3",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!",
+          "to": "Louis Litt",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Louis Litt",
+          "id": "4",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet",
+          "to": "Mike Ross",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Mike Ross",
+          "id": "5",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!",
+          "to": "Louis Litt",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Louis Litt",
+          "id": "6",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet",
+          "to": "Mike Ross",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Mike Ross",
+          "id": "7",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!",
+          "to": "Louis Litt",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Louis Litt",
+          "id": "8",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet",
+          "to": "Mike Ross",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Mike Ross",
+          "id": "9",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro!",
+          "to": "Louis Litt",
+        },
+        Object {
+          "date": "Wed Aug 22 2018",
+          "from": "Louis Litt",
+          "id": "10",
+          "isRead": false,
+          "text": "Lorem ipsum dolor sit amet",
+          "to": "Mike Ross",
+        },
+      ]
+    }
+  />
   <SectionUserNewMessage />
 </styled.div>
 `;
