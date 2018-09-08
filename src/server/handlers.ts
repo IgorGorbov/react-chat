@@ -77,9 +77,8 @@ module.exports = function(
     });
   }
 
-  function handleDeleteMessages(payload: number, callback: any) {
-    const messages = chatManager.deleteMessages(payload);
-
+  function handleDeleteMessages(params: string[], callback: any) {
+    const messages = chatManager.deleteMessages(params);
     return callback(null, messages);
   }
 

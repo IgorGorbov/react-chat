@@ -2,7 +2,6 @@ const initialChats: any = require('../dataUsers').initChats;
 
 module.exports = function() {
   const helpers = require('./helpers');
-  let jsonfile = require('fs');
 
   let chats: any = new Map(<any>(
     Object.values(initialChats).map((c: any) => [c.id, c])
@@ -78,16 +77,6 @@ module.exports = function() {
     currentChat.messages.push(newMessage);
     chats.set(currentChat.id, currentChat);
 
-    let jsonContent = JSON.stringify(helpers.mapToObj(chats), null, 4);
-    setTimeout(() => {
-      jsonfile.writeFile('output.json', jsonContent, function(err: any) {
-        if (err) {
-          return console.log(err);
-        }
-        console.log('JSON file has been saved.');
-      });
-    }, 5000);
-
     return newMessage;
   }
 
@@ -102,7 +91,7 @@ module.exports = function() {
   }) {
     const currentChat = getChatById(currentChatId);
     const messages = currentChat.messages;
-    return messages.map((message: any) => {
+    const updateMessages = messages.map((message: any) => {
       if (selectedMessages.includes(message.id)) {
         return {
           ...message,
@@ -111,6 +100,9 @@ module.exports = function() {
       }
       return message;
     });
+    chats.set(currentChat.id, { ...currentChat, messages: updateMessages });
+
+    return updateMessages;
   }
 
   return {

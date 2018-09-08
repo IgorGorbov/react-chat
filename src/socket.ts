@@ -71,8 +71,8 @@ export default function(dispatch: any): ISocket {
     socket.emit('deleteChat', idChat);
   }
 
-  function deleteMessages(payload: object, cb: any) {
-    socket.emit('deleteMessages', payload, cb);
+  function deleteMessages(messages: number[], cb: any) {
+    socket.emit('deleteMessages', messages, cb);
   }
 
   return {

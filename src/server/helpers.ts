@@ -33,7 +33,7 @@ const getTime = () => {
     .slice(-2);
 
   return {
-    time,
+    time: time.toString(),
     year,
     month,
     day,
