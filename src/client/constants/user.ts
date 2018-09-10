@@ -1,4 +1,3 @@
-export const defaultAvatar = 'https://emilcarlsson.se/assets/mikeross.png';
 export enum Status {
   Online = 'Online',
   Offline = 'Offline',

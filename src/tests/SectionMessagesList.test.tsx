@@ -1,87 +1,97 @@
-// import * as React from 'react';
-// import toJSON from 'enzyme-to-json';
-// import { shallow, mount } from 'enzyme';
-// import SectionMessagesList from '../components/SectionMessagesList';
-// import {
-//   MessageContainer,
-//   UserAvatar,
-//   MessageInfoContainer,
-//   MessageArrow,
-//   Text,
-//   MessageDate,
-// } from '../styledComponents';
-//
-// describe('testing SectionMessagesList', () => {
-//   const messages: IMessage[] = [
-//     {
-//       id: '1',
-//       from: 'Mike Ross',
-//       to: 'Louis Litt',
-//       text:
-//         'Lorem ipsum dolor sit amet, onsectetur adipisicing  onsectetur ' +
-//         'adipisicing consectetur adipisicing elit. Porro!',
-//       date: new Date().toDateString(),
-//       isRead: false,
-//     },
-//     {
-//       id: '2',
-//       from: 'Mike Jenn',
-//       to: 'Louis Litt',
-//       text: 'Lorem ipsum dolor sit amet!',
-//       date: new Date().toDateString(),
-//       isRead: false,
-//     },
-//   ];
-//   const wrapper = mount(<SectionMessagesList messages={messages} />);
-//
-//   it('should contain SectionMessagesList', () => {
-//     expect(wrapper.find('SectionMessagesList')).toHaveLength(1);
-//   });
-//
-//   it('should render 0 messages', () => {
-//     const result = mount(<SectionMessagesList messages={[]} />);
-//     expect(result.find('p').text()).toEqual('Not messages');
-//   });
-//
-//   it('should contain 2 messages', () => {
-//     expect(wrapper.find(MessageContainer)).toHaveLength(2);
-//   });
-//
-//   it('should contain 2 UserAvatars', () => {
-//     expect(wrapper.find(UserAvatar)).toHaveLength(2);
-//   });
-//
-//   it('should contain 2 MessageInfoContainer', () => {
-//     expect(wrapper.find(MessageInfoContainer)).toHaveLength(2);
-//   });
-//
-//   it('should contain 2 MessageArrow', () => {
-//     expect(wrapper.find(MessageArrow)).toHaveLength(2);
-//   });
-//
-//   it('should contain 2 Messages Text', () => {
-//     expect(wrapper.find(Text)).toHaveLength(2);
-//   });
-//
-//   it('should the text of the messages contain fake data', () => {
-//     wrapper.find(Text).forEach((node, i) => {
-//       expect(node.text()).toEqual(messages[i].text);
-//     });
-//   });
-//
-//   it('should contain 2 Messages MessageDate', () => {
-//     expect(wrapper.find(MessageDate)).toHaveLength(2);
-//   });
-//
-//   it('should the data of the messages contain fake data', () => {
-//     wrapper.find(MessageDate).forEach((node, i) => {
-//       expect(node.text()).toEqual(messages[i].date);
-//     });
-//   });
-//
-//   it('snapshot SectionMessagesList', () => {
-//     const result = shallow(<SectionMessagesList messages={messages} />);
-//     const tree = toJSON(result);
-//     expect(tree).toMatchSnapshot();
-//   });
-// });
+import * as React from 'react';
+import toJSON from 'enzyme-to-json';
+import { mount } from 'enzyme';
+
+import SectionMessagesList from '../client/components/SectionMessagesList';
+import Message from '../client/components/Message';
+
+import { MessagesList } from '../client/styledComponents';
+
+import { Status } from '../client/constants/user';
+
+describe('testing SectionMessagesList', () => {
+  const selectMessageHandle = jest.fn();
+  const readMessagesHandle = jest.fn();
+
+  interface IMessagesListProps {
+    messages: IMessage[];
+    currentUser: IUser;
+    currentChatId: number;
+    selectedMessages: number[];
+    selectMessage: (messageId: number) => { type: string; payload: number };
+    readMessages: (
+      currentChatId: number,
+      currentUserID: number,
+    ) => {
+      type: string;
+      payload: { currentChatId: number; currentUserID: number };
+    };
+  }
+
+  let currentUser = {
+    id: 1,
+    name: 'currentName',
+    avatar: 'currentAvatar',
+    status: Status.Online,
+  };
+
+  let companion = {
+    id: 2,
+    name: 'companionName',
+    avatar: 'companionAvatar',
+    status: Status.Online,
+  };
+
+  let props: IMessagesListProps = {
+    messages: [
+      {
+        id: 1,
+        from: currentUser,
+        to: companion,
+        text: 'text test 1',
+        date: '15:00',
+        isRead: false,
+        deletedBy: [],
+      },
+      {
+        id: 2,
+        from: currentUser,
+        to: companion,
+        text: 'text test 2',
+        date: '16:00',
+        isRead: false,
+        deletedBy: [],
+      },
+    ],
+    currentUser,
+    currentChatId: 1,
+    selectedMessages: [],
+    selectMessage: selectMessageHandle,
+    readMessages: readMessagesHandle,
+  };
+
+  let wrapper: any;
+  beforeAll(() => {
+    wrapper = mount(<SectionMessagesList {...props} />);
+  });
+
+  it('should contain MessagesList', () => {
+    expect(wrapper.find(MessagesList)).toHaveLength(1);
+  });
+
+  it('should contain Messages', () => {
+    const messages = wrapper.find(Message);
+    expect(messages).toHaveLength(props.messages.length);
+  });
+
+  it('click Message', () => {
+    const messages = wrapper.find(Message);
+    messages.first().simulate('click');
+    expect(selectMessageHandle).toHaveBeenCalledTimes(1);
+  });
+
+  it('snapshot SectionMessagesList', () => {
+    const tree = toJSON(wrapper);
+    expect(tree).toMatchSnapshot();
+  });
+});

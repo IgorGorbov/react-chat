@@ -1,32 +1,29 @@
 import { createSelector } from 'reselect';
-import { Map } from 'immutable';
 
-interface IStore {
-  session: Map<string, string | number>;
-  chats: any;
-  currentChat: Map<string, string>;
-  filters: Map<string, string>;
-}
-
-const getSearchText = (state: IStore) =>
+const getSearchText = (state: IState) =>
   state.filters.get('search').toLowerCase();
 
-const getChats = (state: IStore) => state.chats;
+const getChats = (state: IState) => state.chats;
 
-const getCurrentId = (state: IStore) => state.session.get('id');
+const getCurrentId = (state: IState) => state.session.get('id');
 
-export const getCurrentUser = (state: IStore) => state.session.toJS();
+export const getCurrentUser = (state: IState) => state.session.toJS();
 
-export const getChatCurrentId = (state: IStore) => state.currentChat.get('id');
+export const getChatCurrentId = (state: IState) => state.currentChat.get('id');
 
-export const getCompanion = (state: IStore) =>
+export const getCurrentChat = (state: IState) => state.currentChat.toJS();
+
+export const getCompanion = (state: IState) =>
   state.currentChat.get('companion');
+
+export const getSelectedMessages = (state: IState) =>
+  state.filters.get('selectedMessages');
 
 export const getSearchEntities: any = createSelector(
   getSearchText,
   getChats,
   getCurrentId,
-  (searchText, chats, currentID) => {
+  (searchText, chats: any, currentID) => {
     const searchByName = (chat: any) => {
       const user = chat.users.find((u: any) => u.id !== currentID);
       return user.name
@@ -52,8 +49,8 @@ export const getAvailableUsers: any = createSelector(
   getChats,
   getUsers,
   getCurrentId,
-  (chats, users, currentUserId) => {
-    const filterUsers: any = Array.from(
+  (chats: any, users, currentUserId) => {
+    const filterUsers = Array.from(
       new Set(
         Object.values(chats.toJS()).reduce(
           (acc: any, chat: any) =>
