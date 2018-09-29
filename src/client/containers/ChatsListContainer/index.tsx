@@ -2,8 +2,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import ChatsList from '../../components/ChatsList';
 import ModalAddChat from '../../components/ModalAddChat';
-import { changeChat, addChat, readMessages } from '../../actions/index';
-import { getSearchEntities, getAvailableUsers } from '../../selectors/index';
+import { changeChat, addChat, readMessages } from '../../actions';
+import { getSearchEntities, getAvailableUsers } from '../../selectors';
 
 interface IUserListProps {
   currentUser: IUser;

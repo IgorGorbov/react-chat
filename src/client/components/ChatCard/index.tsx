@@ -8,7 +8,7 @@ import {
   UserName,
   TextMessage,
   NewCountMessage,
-} from '../../styledComponents/index';
+} from '../../styledComponents';
 import { statusColors } from '../../constants/user';
 
 interface IChatCardProps {
@@ -23,15 +23,18 @@ const ChatCard = ({ user, chat, onChangeChat, isActive }: IChatCardProps) => {
   const inBox: any = chat.messages.filter(
     (message: IMessage) => message.to.id !== user.id,
   );
+
+  const countNewMessages = inBox.reduce(
+    (acc: number, message: IMessage) => acc + Number(!message.isRead),
+    0,
+  );
+
   const lastMessage = inBox.length
     ? [...inBox].pop().text.length > 20
       ? [...inBox].pop().text.slice(0, 20) + '...'
       : [...inBox].pop().text
     : '';
-  const countNewMessages = inBox.reduce(
-    (acc: number, message: IMessage) => acc + Number(!message.isRead),
-    0,
-  );
+
   return (
     <UserCardContainer className={isActive} onClick={onChangeChat}>
       <ImageContainer>

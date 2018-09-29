@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { MessagesList } from '../../styledComponents/index';
+import { MessagesList } from '../../styledComponents';
 import Message from '../Message/index';
 
 interface IMessagesListProps {
@@ -19,7 +19,7 @@ interface IMessagesListProps {
 }
 
 class SectionMessagesList extends React.Component<IMessagesListProps> {
-  private container: any;
+  private container: React.RefObject<any> = React.createRef();
 
   constructor(props: IMessagesListProps) {
     super(props);
@@ -27,8 +27,6 @@ class SectionMessagesList extends React.Component<IMessagesListProps> {
 
   public componentDidMount() {
     this.scrollToBottom();
-    // const { currentUser, currentChatId, readMessages } = this.props;
-    // readMessages(currentChatId, currentUser.id);
   }
 
   public componentDidUpdate() {
@@ -36,7 +34,7 @@ class SectionMessagesList extends React.Component<IMessagesListProps> {
   }
 
   public scrollToBottom = () => {
-    const messagesContainer: any = ReactDOM.findDOMNode(this.container);
+    const messagesContainer: any = ReactDOM.findDOMNode(this.container.current);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   };
 
@@ -48,7 +46,7 @@ class SectionMessagesList extends React.Component<IMessagesListProps> {
       selectedMessages,
     } = this.props;
     return (
-      <MessagesList ref={(el: any) => (this.container = el)}>
+      <MessagesList ref={this.container}>
         {messages.length
           ? messages.map((message: any) => (
               <Message

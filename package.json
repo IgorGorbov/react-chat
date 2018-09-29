@@ -39,7 +39,7 @@
     "server": "ts-node src/server/server.ts",
     "dev-server": "nodemon --exec ts-node src/server/server.ts",
     "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom --coverage --collectCoverageFrom=!src/setupTests.ts --collectCoverageFrom=!src/index.tsx --collectCoverageFrom=!src/dataUsers.ts  --collectCoverageFrom=!src/socket.ts --collectCoverageFrom=!src/types/** --collectCoverageFrom=!src/server/** --collectCoverageFrom=src/**/*tsx --collectCoverageFrom=src/**/*ts",
+    "test": "react-scripts-ts test --env=jsdom --coverage --collectCoverageFrom=!src/setupTests.ts --collectCoverageFrom=!src/client/store/index.ts     --collectCoverageFrom=!src/index.tsx --collectCoverageFrom=!src/dataUsers.ts  --collectCoverageFrom=!src/socket.ts --collectCoverageFrom=!src/types/** --collectCoverageFrom=!src/server/** --collectCoverageFrom=src/**/*tsx --collectCoverageFrom=src/**/*ts",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {

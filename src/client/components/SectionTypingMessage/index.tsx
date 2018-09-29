@@ -6,7 +6,7 @@ import {
   SectionNewMessage,
   UserButton,
   UserInput,
-} from '../../styledComponents/index';
+} from '../../styledComponents';
 import {
   BaseEmoji,
   EmojiData,
@@ -119,6 +119,7 @@ class SectionTypingMessage extends React.Component<
           }
           value={this.state.inputText}
           onKeyPress={(e: React.KeyboardEvent) => this.handleKeyPress(e)}
+          autoFocus={true}
         />
         <UserButton
           buttonwidth="10%"
