@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { UserStatusContainer, RadioInput } from '../../styledComponents/index';
+import { UserStatusContainer, RadioInput } from '../../styledComponents';
 import { Status } from '../../constants/user';
 
 declare interface IUserStatus {

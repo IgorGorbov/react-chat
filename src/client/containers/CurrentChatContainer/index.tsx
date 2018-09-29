@@ -7,8 +7,13 @@ import {
   selectMessage,
   deleteMessages,
   readMessages,
-} from '../../actions/index';
-import { getChatById } from '../../selectors/index';
+} from '../../actions/';
+import {
+  getChatById,
+  getCurrentUser,
+  getCompanion,
+  getSelectedMessages,
+} from '../../selectors';
 
 interface IContactHeaderProps {
   currentUser: IUser;
@@ -85,10 +90,10 @@ const ContactHeaderContainer = (
 };
 
 const mapStateToProps = (state: IState) => ({
-  currentUser: state.session.toJS(),
+  currentUser: getCurrentUser(state),
   currentChat: getChatById(state),
-  companion: state.currentChat.get('companion'),
-  selectedMessages: state.filters.get('selectedMessages'),
+  companion: getCompanion(state),
+  selectedMessages: getSelectedMessages(state),
 });
 
 const mapDispatchToProps = {

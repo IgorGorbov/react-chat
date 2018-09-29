@@ -1,16 +1,17 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import CurrentChatContainer from '../CurrentChatContainer/index';
-import TypingMessageContainer from '../TypingMessageContainer/index';
+import CurrentChatContainer from '../CurrentChatContainer';
+import TypingMessageContainer from '../TypingMessageContainer';
 import SectionContacts from '../../components/SectionContacts';
 import ModalWindow from '../../components/ModalLogin';
-import { GridLayout } from '../../styledComponents/index';
+import { GridLayout } from '../../styledComponents';
 import {
   clientConnect,
   chooseUser,
   fetchAllUsers,
   registerClient,
-} from '../../actions/index';
+} from '../../actions';
+import { getCurrentUser, getCurrentChat } from '../../selectors';
 
 interface IRootContainerProps {
   users: IUser[];
@@ -52,8 +53,8 @@ class RootContainer extends React.Component<IRootContainerProps> {
 }
 
 const mapStateToProps = (state: IState) => ({
-  currentUser: state.session.toJS(),
-  currentChat: state.currentChat.toJS(),
+  currentUser: getCurrentUser(state),
+  currentChat: getCurrentChat(state),
   users: state.users,
 });
 

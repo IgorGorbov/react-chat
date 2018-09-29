@@ -1,6 +1,6 @@
 import * as React from 'react';
-import ChatCard from '../ChatCard/index';
-import { UserListWrapper } from '../../styledComponents/index';
+import ChatCard from '../ChatCard';
+import { UserListWrapper } from '../../styledComponents';
 
 function isChatArray(arr: any): arr is [] {
   return arr.length > 0 && typeof arr[0] === 'object' && Array.isArray(arr);

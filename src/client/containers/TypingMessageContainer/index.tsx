@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { addMessage } from '../../actions/index';
+import { addMessage } from '../../actions';
 import SectionTypingMessage from '../../components/SectionTypingMessage';
 
 interface ITypingMessageProps {
