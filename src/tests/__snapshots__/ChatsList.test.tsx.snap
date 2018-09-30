@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing ChatsList snapshot ChatsList 1`] = `
+<ChatsList
+  changeChat={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "companion": Object {
+              "avatar": "test2",
+              "id": 2,
+              "name": "test2",
+              "status": "Online",
+            },
+            "id": 1,
+          },
+        ],
+      ],
+    }
+  }
+  chats={
+    Array [
+      Object {
+        "id": 1,
+        "messages": Array [],
+        "users": Array [
+          Object {
+            "avatar": "test",
+            "id": 1,
+            "name": "test",
+            "status": "Online",
+          },
+          Object {
+            "avatar": "test2",
+            "id": 2,
+            "name": "test2",
+            "status": "Online",
+          },
+        ],
+      },
+    ]
+  }
+  currentChatId={1}
+  currentUserId={1}
+  readMessages={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          1,
+          1,
+        ],
+      ],
+    }
+  }
+>
+  <styled.div>
+    <div
+      className="sc-cSHVUG cliaFh"
+    >
+      <ChatCard
+        chat={
+          Object {
+            "id": 1,
+            "messages": Array [],
+            "users": Array [
+              Object {
+                "avatar": "test",
+                "id": 1,
+                "name": "test",
+                "status": "Online",
+              },
+              Object {
+                "avatar": "test2",
+                "id": 2,
+                "name": "test2",
+                "status": "Online",
+              },
+            ],
+          }
+        }
+        isActive="active"
+        key="2"
+        onChangeChat={[Function]}
+        user={
+          Object {
+            "avatar": "test2",
+            "id": 2,
+            "name": "test2",
+            "status": "Online",
+          }
+        }
+      >
+        <styled.div
+          className="active"
+          onClick={[Function]}
+        >
+          <div
+            className="active sc-kAzzGY dxEwPq"
+            onClick={[Function]}
+          >
+            <styled.div>
+              <div
+                className="sc-chPdSV gWxTLm"
+              >
+                <Styled(Image)
+                  bordercolor="white"
+                  bordersize="1px"
+                  circular={true}
+                  maxheight="65px"
+                  maxwidth="65px"
+                  size="tiny"
+                  src="test2"
+                >
+                  <Image
+                    as="img"
+                    bordercolor="white"
+                    bordersize="1px"
+                    circular={true}
+                    className="sc-ifAKCX irlmET"
+                    maxheight="65px"
+                    maxwidth="65px"
+                    size="tiny"
+                    src="test2"
+                    ui={true}
+                  >
+                    <img
+                      bordercolor="white"
+                      bordersize="1px"
+                      className="ui tiny circular image sc-ifAKCX irlmET"
+                      maxheight="65px"
+                      maxwidth="65px"
+                      src="test2"
+                    />
+                  </Image>
+                </Styled(Image)>
+                <styled.span
+                  color="green"
+                >
+                  <span
+                    className="sc-kgoBCf gMvtpI"
+                    color="green"
+                  />
+                </styled.span>
+              </div>
+            </styled.div>
+            <styled.div>
+              <div
+                className="sc-kGXeez dCpFuT"
+              >
+                <styled.p>
+                  <p
+                    className="sc-kpOJdX bxSrEP"
+                  >
+                    test2
+                  </p>
+                </styled.p>
+                <styled.p>
+                  <p
+                    className="sc-fjdhpX gAKYZH"
+                  />
+                </styled.p>
+              </div>
+            </styled.div>
+            <styled.p>
+              <p
+                className="sc-dxgOiQ eGtYgX"
+              />
+            </styled.p>
+          </div>
+        </styled.div>
+      </ChatCard>
+    </div>
+  </styled.div>
+</ChatsList>
+`;

@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing UserStatus snapshot UserStatus 1`] = `
+<UserStatus
+  changeUserStatus={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "Online",
+        ],
+      ],
+    }
+  }
+  handleClickAvatar={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+    }
+  }
+  userStatus="Online"
+>
+  <styled.div>
+    <div
+      className="sc-ckVGcZ iLgDVT"
+    >
+      <styled.input
+        className="online"
+        defaultChecked={true}
+        id="r1"
+        name="status"
+        type="radio"
+      >
+        <input
+          className="online sc-jKJlTe feDwuL"
+          defaultChecked={true}
+          id="r1"
+          name="status"
+          type="radio"
+        />
+      </styled.input>
+      <label
+        htmlFor="r1"
+        onClick={[Function]}
+      >
+        Online
+      </label>
+      <styled.input
+        className="away"
+        defaultChecked={false}
+        id="r2"
+        name="status"
+        type="radio"
+      >
+        <input
+          className="away sc-jKJlTe feDwuL"
+          defaultChecked={false}
+          id="r2"
+          name="status"
+          type="radio"
+        />
+      </styled.input>
+      <label
+        htmlFor="r2"
+        onClick={[Function]}
+      >
+        Away
+      </label>
+      <styled.input
+        className="busy"
+        defaultChecked={false}
+        id="r3"
+        name="status"
+        type="radio"
+      >
+        <input
+          className="busy sc-jKJlTe feDwuL"
+          defaultChecked={false}
+          id="r3"
+          name="status"
+          type="radio"
+        />
+      </styled.input>
+      <label
+        htmlFor="r3"
+        onClick={[Function]}
+      >
+        Busy
+      </label>
+      <styled.input
+        className="offline"
+        defaultChecked={false}
+        id="r4"
+        name="status"
+        type="radio"
+      >
+        <input
+          className="offline sc-jKJlTe feDwuL"
+          defaultChecked={false}
+          id="r4"
+          name="status"
+          type="radio"
+        />
+      </styled.input>
+      <label
+        htmlFor="r4"
+        onClick={[Function]}
+      >
+        Offline
+      </label>
+    </div>
+  </styled.div>
+</UserStatus>
+`;
