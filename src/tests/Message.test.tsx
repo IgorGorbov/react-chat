@@ -1,8 +1,8 @@
 import * as React from 'react';
 import toJSON from 'enzyme-to-json';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import Message from '../client/components/Message';
+import Message from '../client/components/Message/index';
 import {
   MessageContainer,
   UserAvatar,
@@ -10,7 +10,7 @@ import {
   MessageArrow,
   TextMessage,
   MessageDate,
-} from '../client/styledComponents';
+} from '../client/styledComponents/index';
 
 import { Status } from '../client/constants/user';
 
@@ -23,7 +23,7 @@ describe('testing Message', () => {
     selectMessage: (messageId: number) => { type: string; payload: number };
     className: string;
   }
-  const mockSelectMessage = jest.fn();
+  const FakeSelectMessage = jest.fn();
   const initState: IMessageProps = {
     key: 1,
     message: {
@@ -51,7 +51,7 @@ describe('testing Message', () => {
       avatar: 'test',
       status: Status.Online,
     },
-    selectMessage: mockSelectMessage,
+    selectMessage: FakeSelectMessage,
     selectedMessages: [],
     className: '',
   };
@@ -59,7 +59,7 @@ describe('testing Message', () => {
   let wrapper: any;
 
   beforeAll(() => {
-    wrapper = mount(<Message {...initState} />);
+    wrapper = shallow(<Message {...initState} />);
   });
 
   it('should contain MessageContainer', () => {
@@ -67,7 +67,7 @@ describe('testing Message', () => {
     expect(messageContainer).toHaveLength(1);
 
     messageContainer.simulate('click');
-    expect(mockSelectMessage).toHaveBeenCalled();
+    expect(FakeSelectMessage).toHaveBeenCalled();
   });
 
   it('should contain UserAvatar', () => {
@@ -86,13 +86,13 @@ describe('testing Message', () => {
   it('should contain TextMessage', () => {
     const textMessage = wrapper.find(TextMessage);
     expect(textMessage).toHaveLength(1);
-    expect(textMessage.text()).toEqual(initState.message.text);
+    expect(textMessage.dive().text()).toEqual(initState.message.text);
   });
 
   it('should contain MessageDate', () => {
     const messageDate = wrapper.find(MessageDate);
     expect(messageDate).toHaveLength(1);
-    expect(messageDate.text()).toEqual(initState.message.date);
+    expect(messageDate.dive().text()).toEqual(initState.message.date);
   });
 
   it('snapshot Message', () => {

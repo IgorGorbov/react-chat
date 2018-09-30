@@ -28,3 +28,5 @@ yarn.lock
 ./coverage
 
 output\.json
+
+tt/

@@ -1,143 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`testing Message snapshot Message 1`] = `
-<Message
-  className=""
-  currentUser={
-    Object {
-      "avatar": "test",
-      "id": 1,
-      "name": "test",
-      "status": "Online",
-    }
-  }
-  message={
-    Object {
-      "date": "16.09.2018",
-      "deletedBy": Array [],
-      "from": Object {
-        "avatar": "test",
-        "id": 1,
-        "name": "test",
-        "status": "Online",
-      },
-      "id": 1,
-      "isRead": false,
-      "text": "Text message",
-      "to": Object {
-        "avatar": "test",
-        "id": 1,
-        "name": "test",
-        "status": "Online",
-      },
-    }
-  }
-  selectMessage={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          1,
-        ],
-      ],
-    }
-  }
-  selectedMessages={Array []}
+<ReactWOW
+  animateClass="animated"
+  animation="fadeInRight"
+  callback={[Function]}
+  delay=""
+  disabled={false}
+  duration=""
+  iteration=""
+  offset={0}
+  overflow={false}
+  resize={true}
+  scroll={true}
 >
-  <ReactWOW
-    animateClass="animated"
-    animation="fadeInRight"
-    callback={[Function]}
-    delay=""
-    disabled={false}
-    duration=""
-    iteration=""
-    offset={0}
-    overflow={false}
-    resize={true}
-    scroll={true}
+  <styled.div
+    className="isMessageTo"
+    key="1"
+    onClick={[Function]}
   >
+    <Styled(Image)
+      bordersize="1px"
+      circular={true}
+      maxheight="45px"
+      maxwidth="45px"
+      size="tiny"
+      src="test"
+    />
     <styled.div
-      className="isMessageTo fadeInRight"
-      key=".$1"
-      onAnimationEnd={[Function]}
-      onClick={[Function]}
-      style={
-        Object {
-          "animationName": "none",
-          "visibility": "hidden",
-        }
-      }
+      className="isMessageTo"
     >
-      <div
-        className="isMessageTo fadeInRight sc-gqjmRU fEkjPM"
-        onAnimationEnd={[Function]}
-        onClick={[Function]}
-        style={
-          Object {
-            "animationName": "none",
-            "visibility": "hidden",
-          }
-        }
-      >
-        <Styled(Image)
-          bordersize="1px"
-          circular={true}
-          maxheight="45px"
-          maxwidth="45px"
-          size="tiny"
-          src="test"
-        >
-          <Image
-            as="img"
-            bordersize="1px"
-            circular={true}
-            className="sc-ifAKCX JhXmE"
-            maxheight="45px"
-            maxwidth="45px"
-            size="tiny"
-            src="test"
-            ui={true}
-          >
-            <img
-              bordersize="1px"
-              className="ui tiny circular image sc-ifAKCX JhXmE"
-              maxheight="45px"
-              maxwidth="45px"
-              src="test"
-            />
-          </Image>
-        </Styled(Image)>
-        <styled.div
-          className="isMessageTo"
-        >
-          <div
-            className="isMessageTo sc-VigVT iTxXta"
-          >
-            <styled.span
-              className="isMessageTo"
-            >
-              <span
-                className="isMessageTo sc-jTzLTM jajjDS"
-              />
-            </styled.span>
-            <styled.p>
-              <p
-                className="sc-fjdhpX gAKYZH"
-              >
-                Text message
-              </p>
-            </styled.p>
-            <styled.span>
-              <span
-                className="sc-jzJRlG dEnjoI"
-              >
-                16.09.2018
-              </span>
-            </styled.span>
-          </div>
-        </styled.div>
-      </div>
+      <styled.span
+        className="isMessageTo"
+      />
+      <styled.p>
+        Text message
+      </styled.p>
+      <styled.span>
+        16.09.2018
+      </styled.span>
     </styled.div>
-  </ReactWOW>
-</Message>
+  </styled.div>
+</ReactWOW>
 `;

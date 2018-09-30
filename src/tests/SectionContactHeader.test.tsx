@@ -10,7 +10,7 @@ import {
   UserAvatar,
   ContactInfoContainer,
   Text,
-} from '../client/styledComponents';
+} from '../client/styledComponents/index';
 
 import { Status } from '../client/constants/user';
 

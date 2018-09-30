@@ -55,7 +55,7 @@ describe('testing ChatCard', () => {
     onChangeChat: FakeOnChangeChat,
   };
 
-  Date.now = jest.fn();
+  Date.now = jest.fn(() => new Date(2018, 10, 10));
 
   let wrapper: any;
 

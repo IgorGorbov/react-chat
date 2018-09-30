@@ -72,9 +72,4 @@ describe('testing SectionTypingMessage', () => {
     const tree = toJSON(wrapper);
     expect(tree).toMatchSnapshot();
   });
-
-  it('should not contain Picker', () => {
-    wrapper.setState({ isOpenPicker: false });
-    expect(wrapper.find(Picker)).toHaveLength(0);
-  });
 });
